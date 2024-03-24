@@ -1,0 +1,27 @@
+:: GoldenYardMusicWidget [widget]
+
+<<widget "GoldenYardMusic">>
+<<if $GoldenYardMusicPlay>>
+<<switch $GoldenYardMusicIndex>>
+<<case 1>>
+留声机正在工作，音乐在庄园里回荡。
+当前播放的音乐：<span class="teal">杀死那个石家庄人</span>。
+<<case 2>>
+留声机正在工作，音乐在庄园里回荡。
+当前播放的音乐：<span class="teal">有点甜</span>。
+<<case 3>>
+留声机正在工作，音乐在庄园里回荡。
+当前播放的音乐：<span class="teal">星月神话</span>。
+<<case 4>>
+留声机正在工作，音乐在庄园里回荡。
+当前播放的音乐：<span class="teal">銀の龍の背に乗って</span>。
+<<default>>
+<</switch>>
+<br><br>
+<</if>>
+<</widget>>
+
+<<widget "GoldenYardChangeMusic">>
+<<set $GoldenYardMusicPlay to true>>
+<<set $GoldenYardMusicIndex to random(1, 4)>>
+<</widget>>

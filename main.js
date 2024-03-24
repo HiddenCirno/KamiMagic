@@ -20,6 +20,8 @@ simpleFrameworks.addto('iModFooter', 'InvisableComplete');
 simpleFrameworks.addto('iModFooter', 'KamiMaigc'); 
 simpleFrameworks.addto('ModStatusBar', 'GraceBar')
 simpleFrameworks.addto('ModCharaDescription', 'KamiMagicRecord')
+//Var
+//KaMi
 Object.defineProperty(window, 'KamiMagicCleanChant', { value: 0 } )
 Object.defineProperty(window, 'KamiMagicCleanLearned', { value: true } )
 Object.defineProperty(window, 'RainBowBridgeChant', { value: 0 } )
@@ -46,14 +48,20 @@ Object.defineProperty(window, 'KamiMagicJudgeChant', { value: 0 } )
 Object.defineProperty(window, 'KamiMagicJudgeLearned', { value: true } )
 Object.defineProperty(window, 'KamiMagicPurgeChant', { value: 0 } )
 Object.defineProperty(window, 'KamiMagicPurgeLearned', { value: true } )
+//Trigger
 Object.defineProperty(window, 'canUseKamiMagic', { value: false } )
 Object.defineProperty(window, 'haveKamiMagic', { value: false } )
 Object.defineProperty(window, 'KamiMagicUseGrace', { value: true } )
 Object.defineProperty(window, 'ShowKamiMagicMenu', { value: false } )
 Object.defineProperty(window, 'KamiMagicDebug', { value: true } )
 Object.defineProperty(window, 'ShowButton', { value: 0 } )
+//联动
 Object.defineProperty(window, 'KamiMagicCconfig_bjxLinkage', { value: false } );
 Object.defineProperty(window, 'KamiMagicCconfig_icrLinkage', { value: false } );
+//GoldenYard
+Object.defineProperty(window, 'GoldenYardMusicPlay', { value: false } )
+Object.defineProperty(window, 'GoldenYardMusicIndex', { value: 0 } )
+//Button
 simpleFrameworks.addto('iModOptions', 'KamiMagicConfig')
 simpleFrameworks.addto('iModOptions', 'RButtonShow')
 simpleFrameworks.addto('iModOptions', 'KamiMagicGrace')
