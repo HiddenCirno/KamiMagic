@@ -1,0 +1,52 @@
+:: RainbowBridgeModLinkage
+<br>
+你正位于<span class="red">彩</span><span class="orange">虹</span><span class="yellow">桥</span><span class="green">传</span><span class="teal">送</span><span class="blue">大</span><span class="purple">厅</span>。
+<br><br>
+光芒交织而成的墙壁散发着柔和的辉光，每一道光芒都闪耀着炫目的色彩，明亮的红色、温暖的橙色与黄色、充满活力的绿色与青色、深邃的蓝色和紫色，令人陶醉其中。地面由闪烁着微光的透明水晶构成。当你踏上这水晶地面时，仿佛置身于漂浮的云层之上。你可以感受到脚下的柔软和温暖，仿佛漫步在天堂之中。
+<br><br>
+<b><span class="red">注意：从超出世界范围外的任何地方进行远程传送，都可能会导致Bug！</span></b><br>
+<b>注意：彩虹桥大厅可抵达所有场景，如果你没有解锁某些场景，请不要直接进行传送，以避免可能存在的问题。</b>
+<br><br>
+选择一个地点进行传送<br>
+<<set $RainBowBridgeChant to 1>>
+<span class="gold">原版地点</span><br>
+<img class='icon' src="img/rainbow.gif">[[打开原版传送地点列表|RainbowBridge]]<br>
+<b><span class="red">如果下方没有显示任何地点，说明你可能没有打开模组联动设置或未确认/储存修改的配置项目（未安装对应模组启用配置可能导致Bug！）</span></b><br>
+
+	<<if $KamiMagicCconfig_bjxLinkage>>
+<span class="gold">北极星拓展</span><br>
+<<domusicon>>[[传送至湖边小屋|Lake House Bedroom]]<br>
+<img class='icon' src="img/misc/icon/island.png">[[传送至四季岛村庄|Desert Village]]<br>
+<<beachicon>><<link [[传送至海底沉船|Deep Sea Ship]]>><<wateraction>><<set $phase to 10>><</link>><br>
+<img class='icon' src="img/misc/icon/gardenplot.png"><<link [[传送至沼泽尽头|Forest]]>><<set $forest to 150>><</link>><br>
+	<</if>>
+
+	<<if $KamiMagicCconfig_icrLinkage>>
+<span class="gold">爱，糖果，与机器人</span><br>
+ <<localIcon 'chinatown'>>[[传送至唐人街|BaseScene Chinatown]]<br>
+	<</if>>
+
+<br><br>
+<span class="gold">？？？</span><br>
+<<domusicon>><<link [[传送至黄金庭院|GoldenYard]]>><</link>>
+<br><br>
+<<link [[离开|$passagePrev]]>><</link>>
+
+:: GoldenYardStorage
+你进入黄金庭院虚幻的车库门，这里似乎与孤儿院后院的车库一模一样，里面有一些箱子和储物架。 
+<br>
+在右手边的墙角还有有个老式冰箱，可以存放一些食材。
+<br><br>
+<<set $tvar.storage to 'home'>>
+<<set _storage to []>>
+<<lanSwitch "The items in storage:" "车库里的物品：">>
+<br>
+
+<div id='container'>
+<<=pocketUI.storage('home')>>
+</div>
+
+<br>
+<<button lanSwitch('ITEMS','查看你身上的道具')>><<iModReplace "pocketItemsOverlay">><</button>>
+<br><br>
+<<link [[离开|GoldenYard]]>><</link>>

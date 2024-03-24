@@ -52,6 +52,9 @@ Object.defineProperty(window, 'KamiMagicUseGrace', { value: true } )
 Object.defineProperty(window, 'ShowKamiMagicMenu', { value: false } )
 Object.defineProperty(window, 'KamiMagicDebug', { value: true } )
 Object.defineProperty(window, 'ShowButton', { value: 0 } )
+Object.defineProperty(window, 'KamiMagicCconfig_bjxLinkage', { value: false } );
+Object.defineProperty(window, 'KamiMagicCconfig_icrLinkage', { value: false } );
+simpleFrameworks.addto('iModOptions', 'KamiMagicConfig')
 simpleFrameworks.addto('iModOptions', 'RButtonShow')
 simpleFrameworks.addto('iModOptions', 'KamiMagicGrace')
 simpleFrameworks.addto('iModOptions', 'LearnAllKamiMagic')

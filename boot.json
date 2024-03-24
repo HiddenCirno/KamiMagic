@@ -11,7 +11,8 @@
   "tweeFileList": [
     "main.twee",
     "rainbowbridge.twee",
-    "kamimagic.twee"
+    "kamimagic.twee",
+    "kmpLinkage.twee"
   ],
   "imgFileList": [
     "img/rainbow.gif",
