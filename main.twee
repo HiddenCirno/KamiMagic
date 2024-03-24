@@ -13,31 +13,6 @@
 
 <</widget>>
 
-<<widget "KamiMagicConfig">>
-<br>
-<span class="gold"><<lanSwitch "KamiMagicPack" "神术与彩虹桥拓展包" >></span>
-<div>
-<!-- 联动启用设置  -->
-<div class="numberslider-inline">
-    <label>
-	<<checkbox "$KamiMagicCconfig_bjxLinkage" false true autocheck>>
-    <<=lanSwitch(
-        "Enable DJX Expand Linkage",
-        "启用北极星拓展联动"
-    )>>
-    </label>
-</div>
-<div class="numberslider-inline">
-    <label>
-	<<checkbox "$KamiMagicCconfig_icrLinkage" false true autocheck>>
-    <<=lanSwitch(
-        "Enable iCandyRobot Expand Linkage",
-        "启用爱糖机联动"
-    )>>
-    </label>
-</div>
-<</widget>>
-
 <<widget "RButtonShow">>
 <<if $ShowButton == 1>>
 <<button lanSwitch('TEST','彩虹桥按钮：显示') $passage>><<set $ShowButton to 0>>
