@@ -9,6 +9,8 @@
 <br><br>
 选择一个地点进行传送<br>
 <<set $RainBowBridgeChant to 1>>
+<span class="gold">模组地点</span><br>
+<img class='icon' src="img/rainbow.gif">[[打开非原版传送地点列表|RainbowBridgeModLinkage]]<br>
 <span class="gold">镇内</span><br>
 <<domusicon>>[[传送至宅邸街|Domus Street]]<br>
 <<homeicon>>[[传送至孤儿院|Orphanage]]<br>
@@ -96,6 +98,7 @@
 <<scarleticon>><<link [[书房|GoldenYardStudyRoom]]>><</link>><br>
 <<templeicon"prayer room">><<link [[祈祷室|GoldenYardPrayRoom]]>><</link>><br>
 <<if $ShowButton == 1>><<stairsicon "down">><<link [[地下室|GoldenYardUnder]]>><</link>><br><</if>>
+<<if $KamiMagicCconfig_icrLinkage >><img class="icon" src="img/misc/warehouse.png"><<link [[仓库|GoldenYardStorage]]>><</link>><br><</if>>
 <<lakeicon>><<link [[去湖边走走|GoldenYardLake]]>><</link>>
 <br><br>
 <<link [[离开|RainbowBridge]]>><</link>>
@@ -123,8 +126,8 @@
 <br><br>
 卧室里的气氛令你昏昏欲睡。
 <br><br>
-<img class='icon' src="img\misc\icon\furniture\singlebeddeluxe.png"> <<link [[脱掉衣服睡觉|GoldenYardBedEvent]]>><<undressSleep"Temple Bunk Bed">><</link>><br>
-<img class='icon' src="img\misc\icon\furniture\singlebeddeluxe.png"> <<link [[穿着身上的衣服并爬到床上|GoldenYardBedEvent]]>><<saveTempHairStyle>><</link>><br>
+<img class='icon' src="img\goldenyardbeddeluxe.png"> <<link [[脱掉衣服睡觉|GoldenYardBedEvent]]>><<undressSleep"Temple Bunk Bed">><</link>><br>
+<img class='icon' src="img\goldenyardbeddeluxe.png"> <<link [[穿着身上的衣服并爬到床上|GoldenYardBedEvent]]>><<saveTempHairStyle>><</link>><br>
 <!--<<listsleepoutfits "GoldenYardBed">>-->
 /*
 <<set $wardrobe_location to "temple">>
@@ -142,7 +145,8 @@
 		<</for>>
         */
 <br>
-<<link [[离开|GoldenYardBedRoom]]>><</link>><br>
+<<link [[离开|GoldenYardBedRoom]]>><</link>><br><br>
+<<wardrobeicon>><<link [[去衣帽间|GoldenYardClothRoom]]>><</link>><br>
 <br><br>
 <<link [[设置|Settings]]>><<set $settingsExitPassage to $passage>><</link>><br>
 <<attitudesControlCheck>>
@@ -209,6 +213,7 @@
 <<mirroricon>><<link [[镜子|GoldenYardMirror]]>><<preMirror>><</link>>
 <br><br>
 <<link [[离开|GoldenYardBedRoom]]>><</link>>
+<img class='icon' src="img\misc\icon\furniture\singlebeddeluxe.png"> <<link [[回到卧房床边|GoldenYardBed]]>><</link>><br>
 
 
 :: GoldenYardCloth
@@ -232,8 +237,8 @@
 <br><br>
 房间的另一侧是一个宽敞而豪华的休息区，配有舒适的真皮沙发和简朴而不失优雅的咖啡桌。这里摆放着一整套手磨咖啡所需的设备与一些精美的茶点，还有刚刚冲泡好的热茶。墙上挂着一幅油画，绘制的是附近的景色，画的一旁是满满当当的酒柜。
 <br><br>
-<<clifficon>><<link [[喝杯咖啡 (0:30)|GoldenYardCoffee]]>><<stress -6>><<pass 30>><</link>><<lstress>><br>
-<<foodicon"creambun">><<link [[享用茶点 (0:30)|GoldenYardTea]]>><<stress -6>><<pass 30>><</link>><<lstress>><br>
+<<clifficon>><<link [[喝杯咖啡 (0:30)|GoldenYardCoffee]]>><<stress -6>><<if $KamiMagicCconfig_icrLinkage >><<thirsty -640>><</if>><<pass 30>><</link>><<lstress>><<if $KamiMagicCconfig_icrLinkage >><<lthirst>><</if>><br>
+<<foodicon"creambun">><<link [[享用茶点 (0:30)|GoldenYardTea]]>><<stress -6>><<if $KamiMagicCconfig_icrLinkage >><<hunger -240>><</if>><<pass 30>><</link>><<lstress>><<if $KamiMagicCconfig_icrLinkage >><<lhunger>><</if>><br>
 <<connudatusicon>><<link [[小酌一杯 (0:30)|GoldenYardBar]]>><<alcohol 200>><<stress -24>><<trauma -12>><<pass 30>><</link>><<llstress>><<ltrauma>><<ggalcohol>><br>
 <<bedicon>><<link [[小憩一会 (1:00)|GoldenYardRest]]>><<stress -12>><<tiredness -12>><<trauma -6>><<pass 60>><</link>><<lstress>><<ltiredness>><<ltrauma>>
 <br><br>
@@ -289,20 +294,20 @@
 <br><br>
 整个浴室散发着一种宁静和放松的氛围，能让你暂时忘掉一切烦恼和压力。
 <br><br>
-<<bathroomicon>><<link [[沐浴 (1:00)|GoldenYardBath1]]>>
+<<bathroomicon>><<link [[泡澡 (0:30)|GoldenYardBath1]]>>
 <<for _type range ["neck","rightarm","leftarm","thigh","bottom","tummy","chest","face","hair","feet","vaginaoutside","vagina","penis","anus","mouth"]>>
 <<bodyliquid _type "goo" -5>><<run $(`#stats${_type}goo`).html(Math.trunc($player.bodyliquid[_type].goo))>>
 <<bodyliquid _type "semen" -5>><<run $(`#stats${_type}semen`).html(Math.trunc($player.bodyliquid[_type].semen))>>
 <<bodyliquid _type "nectar" -5>><<run $(`#stats${_type}nectar`).html(Math.trunc($player.bodyliquid[_type].nectar))>>
 <</for>>
-<<updatesidebarimg>><<stress -12>><<tiredness -12>><<pass 60>><</link>><<lstress>><<ltiredness>><br>
+<<updatesidebarimg>><<stress -12>><<tiredness -12>><<pass 15>><</link>><<lstress>><<ltiredness>><br>
 <<bathroomicon"shower">><<link [[淋浴 (0:30)|GoldenYardBath2]]>>
 <<for _type range ["neck","rightarm","leftarm","thigh","bottom","tummy","chest","face","hair","feet","vaginaoutside","vagina","penis","anus","mouth"]>>
 <<bodyliquid _type "goo" -5>><<run $(`#stats${_type}goo`).html(Math.trunc($player.bodyliquid[_type].goo))>>
 <<bodyliquid _type "semen" -5>><<run $(`#stats${_type}semen`).html(Math.trunc($player.bodyliquid[_type].semen))>>
 <<bodyliquid _type "nectar" -5>><<run $(`#stats${_type}nectar`).html(Math.trunc($player.bodyliquid[_type].nectar))>>
 <</for>>
-<<updatesidebarimg>><<stress -6>><<tiredness -6>><<pass 30>><</link>><<lstress>><<ltiredness>>
+<<updatesidebarimg>><<stress -6>><<tiredness -6>><<pass 15>><</link>><<lstress>><<ltiredness>>
 <br><br>
 <<link [[离开|GoldenYard]]>><</link>>
 
