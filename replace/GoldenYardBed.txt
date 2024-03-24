@@ -1,0 +1,9 @@
+<<case "GoldenYardBed">>
+			<<set _passage to "GoldenYardBedEvent">>
+			<<set $wardrobe_location to "temple">>
+			<<set $storeLocation to "Temple Bunk Bed">>
+			<<wardrobeSelection>>
+			<div id="wardrobewear">
+			<<wardrobewear>>
+			</div>
+<<default>>

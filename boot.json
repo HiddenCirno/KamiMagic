@@ -1,0 +1,83 @@
+{
+  "name": "KamiMagicPack",
+  "version": "1.0.0",
+  "scriptFileList_inject_early": [
+    "main.js"
+  ],
+  "scriptFileList_earlyload": [],
+  "scriptFileList_preload": [],
+  "styleFileList": [],
+  "scriptFileList": [],
+  "tweeFileList": [
+    "main.twee",
+    "rainbowbridge.twee",
+    "kamimagic.twee"
+  ],
+  "imgFileList": [
+    "img/rainbow.gif",
+    "img/clean.png",
+    "img/hope.png",
+    "img/help.png",
+    "img/health.png",
+    "img/warn.png",
+    "img/lock.png",
+    "img/invisable.png",
+    "img/judge.png",
+    "img/purge.png",
+    "img/status_beauty.png",
+    "img/status_control.png",
+    "img/status_hurt.png",
+    "img/status_pain.png",
+    "img/status_sex.png",
+    "img/status_stress.png",
+    "img/status_tired.png"
+  ],
+  "additionFile": [
+    "replace/status_beauty.txt",
+    "replace/status_control.txt",
+    "replace/status_hurt.txt",
+    "replace/status_pain.txt",
+    "replace/status_sex.txt",
+    "replace/status_stress.txt",
+    "replace/status_tired.txt",
+    "replace/GoldenYardBed.txt"
+  ],
+  "addonPlugin": [
+    {
+      "modName": "TweeReplacer",
+      "addonName": "TweeReplacerAddon",
+      "modVersion": "1.0.0",
+      "params": [
+        {
+        "passage": "Widgets Outfits",
+        "findRegex": "<<default>>",
+        "replaceFile": "replace/GoldenYardBed.txt"
+      }
+      ]
+    },
+    {
+      "modName": "ModLoader DoL ImageLoaderHook",
+      "addonName": "ImageLoaderAddon",
+      "modVersion": "^2.3.0",
+      "params": []
+    }
+  ],
+  "dependenceInfo": [
+    {
+      "modName": "TweeReplacer",
+      "version": "^1.0.0"
+    },
+    {
+      "modName": "ReplacePatcher",
+      "version": "^1.0.0"
+    },
+    {
+      "modName": "Simple Frameworks",
+      "version": ">=1.0.0"
+    },
+    {
+      "modName": "ModLoader DoL ImageLoaderHook",
+      "version": "^2.3.0"
+    }
+  ]
+}

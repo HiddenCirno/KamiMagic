@@ -1,0 +1,4 @@
+<<set $wardrobe_location to "temple">>
+<<case "GoldenYardBed">>
+			<<set $storeLocation to "GoldenYardBed">>
+			<<set $wardrobe_location to "goldenyard">>

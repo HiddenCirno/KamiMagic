@@ -1,0 +1,694 @@
+:: KamiMagic [widget]
+
+<<widget "KamiMaigc">>
+<<if $haveKamiMagic>>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<<if $ShowKamiMagicMenu>>
+<<link "收起神术列表" $passage>>
+<<set $ShowKamiMagicMenu to false>>
+<</link>>
+<<if $canUseKamiMagic>>
+<<if $KamiMagicCleanLearned>>
+<br>
+<img class='icon' src="img/clean.png"> <<link "神术: 净衣术" $passage>>
+<<set $upperwet to 0, $lowerwet to 0, $underlowerwet to 0, $underupperwet to 0>>
+<<set $KamiMagicCleanChant to 1>>
+<<set _equip to setup.clothingLayer.all>>
+<<if $worn.genitals.integrity gte 1>>
+<<set $worn.genitals.integrity to 2000>>
+<</if>>
+<<for _i to 0; _i lt _equip.length; _i++>>
+<<set $worn[_equip[_i]].integrity = clothingData(_equip[_i],$worn[_equip[_i]],'integrity_max')>>
+<</for>>
+<<if !$KamiMagicUseGrace>><<grace -5>><</if>><</link>><<if !$KamiMagicUseGrace>><<lgrace>><</if>>
+<</if>>
+<<if $KamiMagicPurgeLearned>>
+<br>
+<img class='icon' src="img/purge.png"> <<link "神术: 净化术" $passage>>
+<<set $KamiMagicPurgeChant to 1>>
+<<for _type range ["neck","rightarm","leftarm","thigh","bottom","tummy","chest","face","hair","feet","vaginaoutside","vagina","penis","anus","mouth"]>>
+<<bodyliquid _type "goo" -5>><<run $(`#stats${_type}goo`).html(Math.trunc($player.bodyliquid[_type].goo))>>
+<<bodyliquid _type "semen" -5>><<run $(`#stats${_type}semen`).html(Math.trunc($player.bodyliquid[_type].semen))>>
+<<bodyliquid _type "nectar" -5>><<run $(`#stats${_type}nectar`).html(Math.trunc($player.bodyliquid[_type].nectar))>>
+<</for>>
+<<updatesidebarimg>>
+<<if !$KamiMagicUseGrace>><<grace -5>><</if>><</link>><<if !$KamiMagicUseGrace>><<lgrace>><</if>>
+<</if>>
+<<if $KamiMagicLockLearned>>
+<<if !$KamiMagicLockActive>>
+<br>
+<img class='icon' src="img/lock.png"> <<link "神术: 心之锁" $passage>>
+<<set $KamiMagicLockValue to $control>>
+<<set $KamiMagicLockTimer to Time.hour>>
+<<set $KamiMagicLockActive to true>>
+<<set $KamiMagicLockChant to 1>>
+<<if !$KamiMagicUseGrace>><<grace -5>><</if>><</link>><<if !$KamiMagicUseGrace>><<lgrace>><</if>><span class="red">（未激活）</span>
+<<else>>
+<br>
+<img class='icon' src="img/lock.png"> <<link "神术: 心之锁" $passage>>
+<<set $KamiMagicLockActive to false>>
+<<set $control to $KamiMagicLockValue>>
+<<set $KamiMagicLockTimer to 0>>
+<<set $KamiMagicLockValue to 0>>
+<<set $KamiMagicLockChant to 2>>
+<</link>><span class="green">（已激活）</span>
+<</if>>
+<</if>>
+<<if $KamiMagicHopeLearned>>
+<br>
+<img class='icon' src="img/hope.png"> <<link "神术: 希望祷言" $passage>>
+<<set $tiredness -= 400>> 
+<<set $stress -= 2000>>
+<<set $KamiMagicHopeChant to 1>>
+<<if !$KamiMagicUseGrace>><<grace -5>><</if>><</link>><<if !$KamiMagicUseGrace>><<lgrace>><</if>>
+<</if>>
+<<if $KamiMagicHelpLearned>>
+<br>
+<img class='icon' src="img/help.png"> <<link "神术: 救赎祷言" $passage>>
+<<set $trauma -= 1000>>
+<<set $KamiMagicHelpChant to 1>>
+<<if !$KamiMagicUseGrace>><<grace -5>><</if>><</link>><<if !$KamiMagicUseGrace>><<lgrace>><</if>>
+<</if>>
+<<if $KamiMagicHealthLearned>>
+<br>
+<img class='icon' src="img/health.png"> <<link "神术: 治愈之环" $passage>>
+<<set $pain -= 40>>
+<<set $KamiMagicHealthChant to 1>>
+<<if !$KamiMagicUseGrace>><<grace -5>><</if>><</link>><<if !$KamiMagicUseGrace>><<lgrace>><</if>>
+<</if>>
+<<if $KamiMagicJudgeLearned>>
+<br>
+<img class='icon' src="img/judge.png"> <<link "神术: 断罪审判" $passage>>
+<<set $KamiMagicJudgeChant to 1>>
+<<if !$KamiMagicUseGrace>><<grace -5>><</if>><</link>><<if !$KamiMagicUseGrace>><<lgrace>><</if>>
+<</if>>
+<<if $KamiMagicInvisableLearned>>
+<<if !$KamiMagicInvisableActive>>
+<br>
+<img class='icon' src="img/invisable.png"> <<link "神术: 心理学隐形" $passage>>
+<<set $KamiMagicInvisableTimer to Time.hour>>
+<<set $KamiMagicInvisableActive to true>>
+<<set $KamiMagicInvisableChant to 1>>
+<<if !$KamiMagicUseGrace>><<grace -5>><</if>><</link>><<if !$KamiMagicUseGrace>><<lgrace>><</if>><span class="red">（未激活）</span>
+<<else>>
+<br>
+<img class='icon' src="img/invisable.png"> <<link "神术: 心理学隐形" $passage>>
+<<set $KamiMagicInvisableActive to false>>
+<<set $KamiMagicInvisableTimer to 0>>
+<<set $KamiMagicInvisableChant to 2>>
+<</link>><span class="green">（已激活）</span>
+<</if>>
+<</if>>
+<<if $RainBowBridgeLearned>>
+<br>
+<img class='icon' src="img/rainbow.gif"> <<link [[神术: 仙域召唤|RainbowBridge]]>>
+<<set $RainBowBridgeChant to 1>>
+<<if !$KamiMagicUseGrace>><<grace -5>><</if>><</link>><<if !$KamiMagicUseGrace>><<lgrace>><</if>>
+<</if>>
+<<else>> 
+你的信仰之力不足以支持你释放神术。
+<</if>>
+<<else>>
+<<link "展开神术列表" $passage>>
+<<set $ShowKamiMagicMenu to true>>
+<</link>>
+<</if>>
+<</if>>
+<br>
+<br>
+<br>
+<</widget>>
+
+<<widget "KamiMaigcChant">>
+<<if $KamiMagicUseGrace>>
+<<set $canUseKamiMagic to true>>
+<<else>>
+<<if $grace>=-95>>
+<<set $canUseKamiMagic to true>>
+<<else>>
+<<set $canUseKamiMagic to false>> 
+<</if>>
+<</if>>
+<<if $KamiMagicJudgeChant == 1>>
+<br>
+你闭上了双眼，虔诚地祈祷：“<span class="teal">已经有的，总要持守，那得胜又遵守启示到底的，主便赐给他权柄制伏列国。</span>”
+<br>
+<span class="gold">主说：吾赐汝利剑，斩无不断，除恶必尽。</span>
+<br>
+宛如光铸的利剑在你手中凝聚，你挥剑斩下，半米长的光刃横扫而出。
+<br>
+<br>
+<<set $finish to 1>> 
+<<set $enemyhealth to 0>>
+<<set $KamiMagicJudgeChant to 0>>
+<</if>>
+<<if $KamiMagicPurgeChant == 1>>
+<br>
+你闭上了双眼，虔诚地祈祷：“<span class="teal">若有眼的话便去看吧，诸邪魔的时日不多了。些等到洁净的号角吹起大火便从我口中出来，那淫秽之物必化为无有！</span>”
+<br>
+<span class="gold">主说：吾赐汝神威，净化一切污秽之物。</span>
+<br>
+一道光芒照耀在你的身上，洗去了你身上的污秽。
+<br>
+<br>
+<<set $KamiMagicPurgeChant to 0>>
+<</if>>
+<<if $KamiMagicCleanChant == 1>>
+<br>
+你闭上了双眼，虔诚地祈祷：“<span class="teal">那虔诚的配得过的要穿白衣与主同行。凡得胜的，必这样穿白衣，和主众使者面前认他的名。</span>”
+<br>
+<span class="gold">主说：吾赐汝圣衣，无尘无垢，远离一切污秽与邪恶。</span>
+<br>
+一道光芒照耀在你的身上，你的衣物焕然一新。
+<br>
+<br>
+<<set $KamiMagicCleanChant to 0>>
+<</if>>
+<<if $RainBowBridgeChant == 1>>
+<br>
+绚丽的光流从天而降，将你传送到了这个地方。
+<br>
+<<set $RainBowBridgeChant to 0>>
+<</if>>
+<<if $KamiMagicHopeChant == 1>>
+<br>
+你闭上了双眼，虔诚地祈祷：“<span class="teal">温柔的人有福了，因为他们必承受地土。饥渴慕义的人有福了，因为他们必得饱足！</span>”
+<br>
+<span class="gold">主说：吾赐汝力量与勇气，为汝降下平静与安宁。</span>
+<br>
+一道光芒照耀在你的身上，你感觉疲劳一扫而空。
+<br>
+<br>
+<<set $KamiMagicHopeChant to 0>>
+<</if>>
+<<if $KamiMagicHelpChant == 1>>
+<br>
+你闭上了双眼，虔诚地祈祷：“<span class="teal">哀恸的人有福了，因为他们必得安慰。怜恤人的人有福了，因为他们必蒙怜恤！</span>”
+<br>
+<span class="gold">主说：吾赐汝慈爱与关怀，抚平汝心中之创痕。</span>
+<br>
+一道光芒照耀在你的身上，你的内心轻松了许多。
+<br>
+<br>
+<<set $KamiMagicHelpChant to 0>>
+<</if>>
+<<if $KamiMagicHealthChant == 1>>
+<br>
+你闭上了双眼，虔诚地祈祷：“<span class="teal">求你看顾我应允我，使我眼中有光——眼睛若了亮，全身就光明。</span>”
+<br>
+<span class="gold">主说：吾赐汝神力，驱散痛苦，免受创伤与疫病。</span>
+<br>
+一道光环以你为中心扩散开来，你身上的疼痛感减轻了。
+<br>
+<br>
+<<set $KamiMagicHealthChant to 0>>
+<</if>>
+<<if $KamiMagicLockChant == 1>>
+<br>
+你闭上了双眼，虔诚地祈祷：“<span class="teal">主要使主的教会建造在这磐石上，阴间的权柄，便不能胜过他。</span>”
+<br>
+<span class="gold">主说：吾赐汝圣心，坚如磐石，永不动摇。</span>
+<br>
+<span class="blue"><i>你感到充满了决心。</i></span>
+<br>
+<<set $KamiMagicLockChant to 0>>
+<</if>>
+<<if $KamiMagicInvisableChant == 1>>
+<br>
+你闭上了双眼，虔诚地祈祷：“<span class="teal">若隐而未现，不到期而落的胎，归于无有，如同未见光的婴孩。在那里恶人止息搅扰，困乏人得享安息。</span>”
+<br>
+<span class="gold">主说：吾赐汝祝福，可匿于幽影，无形无迹。</span>
+<br>
+<span class="blue"><i>你的存在感消失了。</i></span>
+<br>
+<<set $KamiMagicInvisableChant to 0>>
+<</if>>
+<<if $KamiMagicLockActive>>
+<<set $control to 1000>>
+<<if Time.hour < $KamiMagicLockTimer>>
+<<set $KamiMagicLockTimerLocale to Time.hour+24>>
+<<else>>
+<<set $KamiMagicLockTimerLocale to Time.hour>>
+<</if>>
+<<if $KamiMagicLockTimerLocale - $KamiMagicLockTimer >= 1>>
+<<if !$KamiMagicUseGrace>>
+<<set $grace -= $KamiMagicLockTimerLocale - $KamiMagicLockTimer>>
+<br>
+<span class="blue"><i>心之锁消耗了<<print $KamiMagicLockTimerLocale - $KamiMagicLockTimer>>点恩典</i></span>
+<<set $KamiMagicLockTimer to $KamiMagicLockTimerLocale>>
+<</if>>
+<</if>>
+<br>
+<span class="blue"><i>你的心灵坚不可摧。</i></span>
+<</if>>
+<<if $KamiMagicInvisableActive>>
+<<set $danger to 0>>
+<<if Time.hour < $KamiMagicInvisableTimer>>
+<<set $KamiMagicInvisableTimerLocale to Time.hour+24>>
+<<else>>
+<<set $KamiMagicInvisableTimerLocale to Time.hour>>
+<</if>>
+<<if $KamiMagicInvisableTimerLocale - $KamiMagicInvisableTimer >= 1>>
+<<if !$KamiMagicUseGrace>>
+<<set $grace -= $KamiMagicInvisableTimerLocale - $KamiMagicInvisableTimer>>
+<br>
+<span class="blue"><i>心理学隐形消耗了<<print $KamiMagicInvisableTimerLocale - $KamiMagicInvisableTimer>>点恩典</i></span>
+<<set $KamiMagicInvisableTimer to $KamiMagicInvisableTimerLocale>>
+<</if>>
+<</if>>
+<br>
+<span class="blue"><i>其它人对你视若无睹。</i></span>
+<br>
+<</if>>
+<<if !$KamiMagicUseGrace && $grace <= -40 && $KamiMagicLockActive>>
+<<set $KamiMagicLockActive to false>>
+<<set $KamiMagicLockTimer to 0>>
+<<set $KamiMagicLockValue to 0>>
+<<set $KamiMagicLockChant to 2>>
+<br>
+你的信仰不足以继续维持<span class="gold">心之锁</span>。
+<</if>>
+<<if $KamiMagicLockChant == 2>>
+<<set $KamiMagicLockChant to 0>>
+<br>
+心之锁的力量消失了。
+<br>
+<</if>>
+<<if !$KamiMagicUseGrace && $grace <= -40 && $KamiMagicInvisableActive>>
+<<set $KamiMagicInvisableActive to false>>
+<<set $KamiMagicInvisableTimer to 0>>
+<<set $KamiMagicInvisableChant to 2>>
+<br>
+你的信仰不足以继续维持<span class="gold">心理学隐形</span>。
+<</if>>
+<<if $KamiMagicInvisableChant == 2>>
+<<set $KamiMagicInvisableChant to 0>>
+<br>
+心理学隐形的力量消失了。
+<br>
+<</if>>
+<</widget>>
+
+
+<<widget "KamiMaigcLost">>
+<<if $KamiMagicJudgeLearned && ($angel lt 6 || $purity lt 1000)>>
+
+<</if>>
+<</widget>>
+
+<<widget "KamiMaigcLearnCheat">>
+<span class="gold">神术</span><br>
+<<if !$KamiMagicCleanLearned>>
+<img class='icon' src="img/clean.png"> <<link "习得「净衣术」" $passage>>
+<<set $KamiMagicCleanLearned to true>>
+<<if !$haveKamiMagic>>
+<<set $haveKamiMagic to true>>
+<</if>>
+<</link>><br>
+<<else>>
+<img class='icon' src="img/warn.png"> <<link "遗忘「净衣术」" $passage>>
+<<set $KamiMagicCleanLearned to false>>
+<</link>><br>
+<</if>>
+净衣术能够立刻烘干你身上的衣服，并将衣物与贞操带修复至最佳状态。<br>
+<<if !$KamiMagicPurgeLearned>>
+<img class='icon' src="img/clean.png"> <<link "习得「净化术」" $passage>>
+<<set $KamiMagicPurgeLearned to true>>
+<<if !$haveKamiMagic>>
+<<set $haveKamiMagic to true>>
+<</if>>
+<</link>><br>
+<<else>>
+<img class='icon' src="img/warn.png"> <<link "遗忘「净化术」" $passage>>
+<<set $KamiMagicPurgeLearned to false>>
+<</link>><br>
+<</if>>
+净化术能够清除你身上的所有污秽之物。<br>
+<<if !$KamiMagicLockLearned>>
+<img class='icon' src="img/lock.png"> <<link "习得「心之锁」" $passage>>
+<<set $KamiMagicLockLearned to true>>
+<<if !$haveKamiMagic>>
+<<set $haveKamiMagic to true>>
+<</if>>
+<</link>><br>
+<<else>>
+<img class='icon' src="img/warn.png"> <<link "遗忘「心之锁」" $passage>>
+<<set $KamiMagicLockLearned to false>>
+<</link>><br>
+<</if>>
+解锁条件：意志达到6级（857）。<br>
+心之锁会将你的自控值锁定在最高，当恩典过低时，心之锁无法起效。心之锁每维持一小时需要消耗1点恩典。心之锁失效后，你的自控值会还原到之前的数值。<br>
+<<if !$KamiMagicHopeLearned>>
+<img class='icon' src="img/hope.png"> <<link "习得「希望祷言」" $passage>>>
+<<set $KamiMagicHopeLearned to true>>
+<<if !$haveKamiMagic>>
+<<set $haveKamiMagic to true>>
+<</if>>
+<</link>><br>
+<<else>>
+<img class='icon' src="img/warn.png"> <<link "遗忘「希望祷言」" $passage>>
+<<set $KamiMagicHopeLearned to false>>
+<</link>><br>
+<</if>>
+希望祷言能够降低你身体的疲惫与压力，重新调整你的状态。<br>
+<<if !$KamiMagicHelpLearned>>
+<img class='icon' src="img/help.png"> <<link "习得「救赎祷言」" $passage>>
+<<set $KamiMagicHelpLearned to true>>
+<<if !$haveKamiMagic>>
+<<set $haveKamiMagic to true>>
+<</if>>
+<</link>><br>
+<<else>>
+<img class='icon' src="img/warn.png"> <<link "遗忘「救赎祷言」" $passage>>
+<<set $KamiMagicHelpLearned to false>>
+<</link>><br>
+<</if>>
+救赎祷言能够降低你的创伤，抚慰你的心灵。<br>
+<<if !$KamiMagicHealthLearned>>
+<img class='icon' src="img/health.png"> <<link "习得「治愈之环」" $passage>>
+<<set $KamiMagicHealthLearned to true>>
+<<if !$haveKamiMagic>>
+<<set $haveKamiMagic to true>>
+<</if>>
+<</link>><br>
+<<else>>
+<img class='icon' src="img/warn.png"> <<link "遗忘「治愈之环」" $passage>>
+<<set $KamiMagicHealthLearned to false>>
+<</link>><br>
+<</if>>
+解锁条件：护理技能达到A级（900）以上。<br>
+治愈之环能够减轻你的疼痛，抚平身体创伤。<br>
+<<if !$KamiMagicJudgeLearned>>
+<img class='icon' src="img/judge.png"> <<link "习得「断罪审判」" $passage>>
+<<set $KamiMagicJudgeLearned to true>>
+<<if !$haveKamiMagic>>
+<<set $haveKamiMagic to true>>
+<</if>>
+<</link>><br>
+<<else>>
+<img class='icon' src="img/warn.png"> <<link "遗忘「断罪审判」" $passage>>
+<<set $KamiMagicJudgeLearned to false>>
+<</link>><br>
+<</if>>
+解锁条件：纯洁度达到最高（1000）并完成天使化。<br>
+断罪审判能够让你在与敌人的战斗中占据绝对优势。<i><span class="blue">此乃神赐之剑，必将无往不利。</span></i><br>
+<<if !$KamiMagicInvisableLearned>>
+<img class='icon' src="img/invisable.png"> <<link "习得「心理学隐形」" $passage>>
+<<set $KamiMagicInvisableLearned to true>>
+<<if !$haveKamiMagic>>
+<<set $haveKamiMagic to true>>
+<</if>>
+<</link>><br>
+<<else>>
+<img class='icon' src="img/warn.png"> <<link "遗忘「心理学隐形」" $passage>>
+<<set $KamiMagicInvisableLearned to false>>
+<</link>><br>
+<</if>>
+解锁条件：诡术技能达到A级（900）以上。<br>
+心理学隐形能够最大限度降低你的存在感，让你避免与它人发生争斗。当恩典过低时，心理学隐形无法起效。心理学隐形每维持一小时需要消耗1点恩典。<br>
+<<if !$RainBowBridgeLearned>>
+<img class='icon' src="img/rainbow.gif"> <<link "习得「仙域召唤」" $passage>>
+<<set $RainBowBridgeLearned to true>>
+<<if !$haveKamiMagic>>
+<<set $haveKamiMagic to true>>
+<</if>>
+<</link>><br>
+<<else>>
+<img class='icon' src="img/warn.png"> <<link "遗忘「仙域召唤」" $passage>>
+<<set $RainBowBridgeLearned to false>>
+<</link>><br>
+<</if>>
+解锁条件：纯洁度达到最高（1000）并完成天使化。<br>
+仙域召唤允许你召唤彩虹桥，将自己传送到欲都小镇的其它任何地点，或者传送到<span class="gold">黄金庭院</span>。<br>
+<</widget>>
+ 
+<<widget "GraceBar">>
+<<if Number.isFinite($grace)>>
+	<div id="gracedisplay" @title="'Grace: ' + $grace.toFixed(2)">
+		<div @class="($options.showCaptionText is true ? '' : 'rightMeterText')">
+			/*<img class='icon' src="img/ui/sym_purity.png">*/<<lanSwitch "Grace:" "恩典：">>
+			<<if $options.showCaptionText is true>>
+				<<if $grace +100 gte 200>>
+					<span class="green"><<lanSwitch "eng" "信仰萦绕在你身边。">></span>
+				<<elseif $grace+100 gte 160>>
+					<span class="teal"><<lanSwitch "eng" "信仰的光芒稍显黯淡。">></span>
+				<<elseif $grace+100 gte 120>>
+					<span class="lblue"><<lanSwitch "eng" "你将信仰收敛于心。">></span>
+				<<elseif $grace+100 gte 80>>
+					<span class="blue"><<lanSwitch "eng" "你看起来与常人无异。">></span>
+				<<elseif $grace+100 gte 40>>
+					<span class="purple"><<lanSwitch "eng" "你的内心产生了动摇。">></span>
+				<<elseif $grace+100 gte 1>>
+					<span class="pink"><<lanSwitch "eng" "你的信仰正在崩塌。">></span>
+				<<else>>
+					<span class="red"><<lanSwitch "eng" "你的信仰几近干涸。">></span>
+				<</if>>
+			<</if>>
+		</div>
+		<<set _showCaptionText to !$options.showCaptionText>>
+        <<statbarinverted $grace+100 `200` _showCaptionText>>
+		<div style="clear:both;"></div>
+	</div>
+<</if>>
+<</widget>>
+
+<<widget "LearnKamiMagic">>
+<<link [[习得神术|LearnKamiMagicMenu]]>><</link>>
+<br>
+<</widget>>
+
+<<widget "KamiMagicRecord">>
+<br>
+<<if $KamiMagicCleanLearned>>
+你被某种存在眷顾着，你掌握了<span class="gold">净衣术</span>。
+<br>
+<</if>>
+<<if $KamiMagicPurgeLearned>>
+你被某种存在眷顾着，你掌握了<span class="gold">净化术</span>。
+<br>
+<</if>>
+<<if $KamiMagicLockLearned>>
+你被某种存在眷顾着，你掌握了<span class="gold">心之锁</span>。
+<br>
+<</if>>
+<<if $KamiMagicHopeLearned>>
+你被某种存在眷顾着，你掌握了<span class="gold">希望祷言</span>。
+<br>
+<</if>>
+<<if $KamiMagicHelpLearned>>
+你被某种存在眷顾着，你掌握了<span class="gold">救赎祷言</span>。
+<br>
+<</if>>
+<<if $KamiMagicHealthLearned>>
+你被某种存在眷顾着，你掌握了<span class="gold">治愈之环</span>。
+<br>
+<</if>>
+<<if $KamiMagicJudgeLearned>>
+你被某种存在眷顾着，你掌握了<span class="gold">断罪审判</span>。
+<br>
+<</if>>
+<<if $KamiMagicInvisableLearned>>
+你被某种存在眷顾着，你掌握了<span class="gold">心理学隐形</span>。
+<br>
+<</if>>
+<<if $RainBowBridgeLearned>>
+你被某种存在眷顾着，你掌握了<span class="gold">仙域召唤</span>。
+<br>
+<</if>>
+<</widget>>
+
+<<widget "TestDiv">>
+<div id='addKamiMagicText'>
+</div>
+<</widget>>
+/*Fuck!!! */
+<<widget "InvisableStart">>
+<<if $KamiMagicInvisableActive>>
+<<set $KamiMagicInvisableActive to $allure>>
+<<set $allure to -99999>>
+<</if>>
+<</widget>>
+<<widget "InvisableComplete">>
+<<if !$KamiMagicInvisableActive>>
+<<set $allure to $KamiMagicInvisableActive>>
+<</if>>
+<</widget>>
+
+:: LearnKamiMagicMenu
+<br>
+你闭上双眼，将意识沉入另一个空间。
+<br>
+<br>
+目前已经掌握的神术: 
+<br>
+<br>
+<<if $KamiMagicCleanLearned>>
+你已经掌握<span class="gold">净衣术</span>。<br>
+净衣术能够立刻烘干你身上的衣服，并将衣物与贞操带修复至最佳状态。<br>
+<</if>>
+<<if $KamiMagicPurgeLearned>>
+你已经掌握<span class="gold">净化术</span>。<br>
+净化术能够清除你身上的所有污秽之物。<br>
+<</if>>
+<<if $KamiMagicLockLearned>>
+你已经掌握<span class="gold">心之锁</span>。<br>
+心之锁会将你的自控值锁定在最高，当恩典过低时，心之锁无法起效。心之锁每维持一小时需要消耗1点恩典。心之锁失效后，你的自控值会还原到之前的数值。<br>
+<</if>>
+<<if $KamiMagicHopeLearned>>
+你已经掌握<span class="gold">希望祷言</span>。<br>
+希望祷言能够降低你身体的疲惫与压力，重新调整你的状态。<br>
+<</if>>
+<<if $KamiMagicHelpLearned>>
+你已经掌握<span class="gold">救赎祷言</span>。<br>
+救赎祷言能够降低你的创伤，抚慰你的心灵。<br>
+<</if>>
+<<if $KamiMagicHealthLearned>>
+你已经掌握<span class="gold">治愈之环</span>。<br>
+治愈之环能够减轻你的疼痛，抚平身体创伤。<br>
+<</if>>
+<<if $KamiMagicJudgeLearned>>
+你已经掌握<span class="gold">断罪审判</span>。<br>
+断罪审判能够让你在与敌人的战斗中占据绝对优势。<i><span class="blue">此乃神赐之剑，必将无往不利。</span></i><br>
+<</if>>
+<<if $KamiMagicInvisableLearned>>
+你已经掌握<span class="gold">心理学隐形</span>。<br>
+心理学隐形能够最大限度降低你的存在感，让你避免与它人发生争斗。当恩典过低时，心理学隐形无法起效。心理学隐形每维持一小时需要消耗1点恩典。<br>
+<</if>>
+<<if $RainBowBridgeLearned>>
+你已经掌握<span class="gold">仙域召唤</span>。<br>
+仙域召唤允许你召唤彩虹桥，将自己传送到欲都小镇的其它任何地点，或者传送到<span class="gold">黄金庭院</span>。<br>
+<</if>>
+<br>
+目前可以学习的神术: 
+<br>
+<br>
+<<if $grace >= 100>>
+<<if !$KamiMagicCleanLearned>>
+<img class='icon' src="img/clean.png"> <<link "习得「净衣术」" $passage>><<grace -200>>
+<<set $KamiMagicCleanLearned to true>>
+<<if !$haveKamiMagic>>
+<<set $haveKamiMagic to true>>
+<</if>>
+<</link>><<lllgrace>><br>
+<<else>>
+<img class='icon' src="img/warn.png"> <<link "遗忘「净衣术」" $passage>>
+<<set $KamiMagicCleanLearned to false>>
+<</link>><br>
+<</if>>
+<<if !$KamiMagicPurgeLearned>>
+<img class='icon' src="img/clean.png"> <<link "习得「净化术」" $passage>><<grace -200>>
+<<set $KamiMagicPurgeLearned to true>>
+<<if !$haveKamiMagic>>
+<<set $haveKamiMagic to true>>
+<</if>>
+<</link>><<lllgrace>><br>
+<<else>>
+<img class='icon' src="img/warn.png"> <<link "遗忘「净化术」" $passage>>
+<<set $KamiMagicPurgeLearned to false>>
+<</link>><br>
+<</if>>
+<<if $willpower gte 857>>
+<<if !$KamiMagicLockLearned>>
+<img class='icon' src="img/lock.png"> <<link "习得「心之锁」" $passage>><<grace -200>>
+<<set $KamiMagicLockLearned to true>>
+<<if !$haveKamiMagic>>
+<<set $haveKamiMagic to true>>
+<</if>>
+<</link>><<lllgrace>><br>
+<<else>>
+<img class='icon' src="img/warn.png"> <<link "遗忘「心之锁」" $passage>>
+<<set $KamiMagicLockLearned to false>>
+<</link>><br>
+<</if>>
+<</if>>
+<<if !$KamiMagicHopeLearned>>
+<img class='icon' src="img/hope.png"> <<link "习得「希望祷言」" $passage>><<grace -200>>
+<<set $KamiMagicHopeLearned to true>>
+<<if !$haveKamiMagic>>
+<<set $haveKamiMagic to true>>
+<</if>>
+<</link>><<lllgrace>><br>
+<<else>>
+<img class='icon' src="img/warn.png"> <<link "遗忘「希望祷言」" $passage>>
+<<set $KamiMagicHopeLearned to false>>
+<</link>><br>
+<</if>>
+<<if !$KamiMagicHelpLearned>>
+<img class='icon' src="img/help.png"> <<link "习得「救赎祷言」" $passage>><<grace -200>>
+<<set $KamiMagicHelpLearned to true>>
+<<if !$haveKamiMagic>>
+<<set $haveKamiMagic to true>>
+<</if>>
+<</link>><<lllgrace>><br>
+<<else>>
+<img class='icon' src="img/warn.png"> <<link "遗忘「救赎祷言」" $passage>>
+<<set $KamiMagicHelpLearned to false>>
+<</link>><br>
+<</if>>
+<<if $tending gte 900>>
+<<if !$KamiMagicHealthLearned>>
+<img class='icon' src="img/health.png"> <<link "习得「治愈之环」" $passage>><<grace -200>>
+<<set $KamiMagicHealthLearned to true>>
+<<if !$haveKamiMagic>>
+<<set $haveKamiMagic to true>>
+<</if>>
+<</link>><<lllgrace>><br>
+<<else>>
+<img class='icon' src="img/warn.png"> <<link "遗忘「治愈之环」" $passage>>
+<<set $KamiMagicHealthLearned to false>>
+<</link>><br>
+<</if>>
+<</if>>
+<<if ($angel gte 6 || $fallenangel gte 6) && $purity gte 1000>>
+<<if !$KamiMagicJudgeLearned>>
+<img class='icon' src="img/judge.png"> <<link "习得「断罪审判」" $passage>><<grace -200>>
+<<set $KamiMagicJudgeLearned to true>>
+<<if !$haveKamiMagic>>
+<<set $haveKamiMagic to true>>
+<</if>>
+<</link>><<lllgrace>><br>
+<<else>>
+<img class='icon' src="img/warn.png"> <<link "遗忘「断罪审判」" $passage>>
+<<set $KamiMagicJudgeLearned to false>>
+<</link>><br>
+<</if>>
+<</if>>
+<<if $skulduggery gte 900>>
+<<if !$KamiMagicInvisableLearned>>
+<img class='icon' src="img/invisable.png"> <<link "习得「心理学隐形」" $passage>><<grace -200>>
+<<set $KamiMagicInvisableLearned to true>>
+<<if !$haveKamiMagic>>
+<<set $haveKamiMagic to true>>
+<</if>>
+<</link>><<lllgrace>><br>
+<<else>>
+<img class='icon' src="img/warn.png"> <<link "遗忘「心理学隐形」" $passage>>
+<<set $KamiMagicInvisableLearned to false>>
+<</link>><br>
+<</if>>
+<</if>>
+<<if ($angel gte 6 || $fallenangel gte 6) && $purity gte 1000>>
+<<if !$RainBowBridgeLearned>>
+<img class='icon' src="img/rainbow.gif"> <<link "习得「仙域召唤」" $passage>><<grace -200>>
+<<set $RainBowBridgeLearned to true>>
+<<if !$haveKamiMagic>>
+<<set $haveKamiMagic to true>>
+<</if>>
+<</link>><<lllgrace>><br>
+<<else>>
+<img class='icon' src="img/warn.png"> <<link "遗忘「仙域召唤」" $passage>>
+<<set $RainBowBridgeLearned to false>>
+<</link>><br>
+<</if>>
+<</if>>
+<<else>>
+你的内心还不够虔诚，无法学习神术。
+<</if>>
+<br>
+<<link "返回" "Temple Cloister">><</link>>

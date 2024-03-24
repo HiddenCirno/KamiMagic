@@ -1,0 +1,1 @@
+<img class='icon' src="img/status_hurt.png"> 创伤：

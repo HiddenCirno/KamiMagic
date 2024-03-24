@@ -1,0 +1,1 @@
+<img class='icon' src="img/status_stress.png"> 压力：

@@ -1,0 +1,112 @@
+:: ASimpleContentTest [widget]
+<<widget "aSimpleTest">>
+    <div id='test'>just a simple test. make this show at top of every passage!</div>
+<</widget>>
+
+<<widget "myOptionsA">>
+   <span class="gold">my Options A</span>
+<br>
+
+<div>
+  any option setting here
+</div>
+
+<</widget>>
+
+<<widget "RButtonShow">>
+<<if $ShowButton == 1>>
+<<button lanSwitch('TEST','彩虹桥按钮：显示') $passage>><<set $ShowButton to 0>>
+<</button>>
+<<else>>
+<<button lanSwitch('TEST','彩虹桥按钮：隐藏') $passage>><<set $ShowButton to 1>>
+<</button>>
+<</if>>
+<</widget>>
+
+<<widget "KamiMagicGrace">>
+<<if $KamiMagicUseGrace>>
+<<button lanSwitch('TEST','神术是否消耗恩典：否') $passage>><<set $KamiMagicUseGrace to false>>
+<</button>>
+<<else>>
+<<button lanSwitch('TEST','神术是否消耗恩典：是') $passage>><<set $KamiMagicUseGrace to true>>
+<</button>>
+<</if>>
+<</widget>>
+<<widget "LearnAllKamiMagic">>
+<<if !$KamiMagicDebug>>
+<<button lanSwitch('TEST','习得所有神术') $passage>>
+<<set $KamiMagicCleanLearned to true>>
+<<set $RainBowBridgeLearned to true>>
+<<set $KamiMagicHopeLearned to true>>
+<<set $KamiMagicHelpLearned to true>>
+<<set $KamiMagicHealthLearned to true>>
+<<set $KamiMagicLockLearned to true>>
+<<set $KamiMagicInvisableLearned to true>>
+<<set $KamiMagicJudgeLearned to true>>
+<<set $KamiMagicPurgeLearned to true>>
+<<set $haveKamiMagic to true>>
+<<set $KamiMagicDebug to true>>
+<</button>>
+<<else>>
+<<button lanSwitch('TEST','遗忘所有神术') $passage>>
+<<set $KamiMagicCleanLearned to false>>
+<<set $RainBowBridgeLearned to false>>
+<<set $KamiMagicHopeLearned to false>>
+<<set $KamiMagicHelpLearned to false>>
+<<set $KamiMagicHealthLearned to false>>
+<<set $KamiMagicLockLearned to false>>
+<<set $KamiMagicInvisableLearned to false>>
+<<set $KamiMagicJudgeLearned to false>>
+<<set $KamiMagicPurgeLearned to false>>
+<<set $haveKamiMagic to false>>
+<<set $KamiMagicDebug to false>>
+<</button>>
+<</if>>
+<</widget>>
+
+<<widget "RButtonHide">>
+    <div id='test'>optionC</div>
+<</widget>>
+
+display a button with overlay at UIBar
+<<widget "BridgeButton">>
+<<if $ShowButton == 1>>
+<<button lanSwitch('TEST','召唤彩虹桥') "RainbowBridge">>
+<</button>>
+<</if>>
+<</widget>>
+
+
+/*
+setup your UIBar
+<<widget "testOverlay">>
+	<<replace #customOverlayTitle>><<titleTest>><</replace>>
+	<<replace #customOverlayContent>><</replace>>
+<</widget>>
+
+<<widget "titleTest">>
+	
+<</widget>>
+
+<<widget "TestOver">>
+这只是一个测试。
+<</widget>>
+<<widget "TestCaption">>
+你有一通未接来电。<br>
+<</widget>>
+*/
+
+/*
+<<widget "TesterOpinion">>
+<<=lanSwitch("thinks you're its master.", '觉得你是它的主人。')>>
+<</widget>>
+
+
+<<widget "RobinOpinionIcon">>
+	<<if C.npc.Robin.love gte 30>>
+		<img scr='img/opinionIcon/robin_love.png'>
+	<<else>>
+		<img scr='img/opinionIcon/robin.png'>
+	<</if>>
+<</widget>>
+*/

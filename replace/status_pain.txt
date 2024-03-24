@@ -1,0 +1,1 @@
+<img class='icon' src="img/status_pain.png"> 疼痛：
