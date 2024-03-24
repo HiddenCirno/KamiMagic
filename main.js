@@ -61,6 +61,7 @@ Object.defineProperty(window, 'KamiMagicCconfig_icrLinkage', { value: false } );
 //GoldenYard
 Object.defineProperty(window, 'GoldenYardMusicPlay', { value: false } )
 Object.defineProperty(window, 'GoldenYardMusicIndex', { value: 0 } )
+Object.defineProperty(window, 'GoldenSkilTrain', { value: 0 } )
 //Button
 simpleFrameworks.addto('iModOptions', 'KamiMagicConfig')
 simpleFrameworks.addto('iModOptions', 'RButtonShow')

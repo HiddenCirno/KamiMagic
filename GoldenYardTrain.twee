@@ -1,0 +1,49 @@
+:: GoldenYardSimulateTrain [widget]
+<br>
+你正位于<span class="gold">黄金庭院</span>二楼的模拟训练室。
+<br><br>
+<<GoldenYardMusic>>
+这间房间似乎很特殊，它的大门表面上与黄金庭院的装修风格一致，实际上是一扇伪装的很好的自动门，你进来之后，它自动关上了，房间里陷入了一片黑暗。<br>
+两盏射灯从天花板上洒下，房间的中央是一个圆柱形的奇怪设施。<br>
+酒红色头发的女孩出现在你身边。<br>
+”欢迎来到模拟训练室，我是这里的主控智能程序，Eden。“<br>
+“如果您需要进行技能训练，请站到意识投射器中间。”她对你露出一个温和的笑容。
+<br><br>
+
+<<link [[开始训练|GoldenYardSimulateTrainLoad]]>><</link>>
+<<link [[离开|GoldenYard]]>><</link>>
+
+
+:: GoldenYardSimulateTrainLoad
+<br>
+你站到了房间中央的装置里——意识投射器，Eden是这么称呼它的。<br>
+“检测到访客，意识投射器启动。”Eden的声音在你耳边响起，意识投射器逐渐开始加速旋转。<br>
+一阵眩晕过后，你的视线重新变得清晰，你下意识的打量四周，周围空无一物，只有大量的云雾缭绕在你身边。
+<br><br>
+虚拟光屏出现在你面前。
+<br><br>
+请选择你需要训练的技能。<br>
+<<link [[诡术|GoldenYardSimulateTrainLoad]]>><<set $GoldenSkilTrain to 1>><</link>>
+<<link [[离开|GoldenYardSimulateTrain]]>><</link>>
+
+
+:: GoldenYardSimulateTrainEvent
+<br>
+周围的场景开始变幻，在一片白光之后，云雾散去了。
+<<switch $GoldenSkilTrain>>
+<<case 1>>
+你来到了一处街道上，戴着单边眼镜的年轻人出现在你面前。<br>
+“虚拟人格初始化完成。欢迎来到模拟训练室，我是「诡术」技能的教师，克莱恩。”年轻人微笑着向你鞠躬。<br>
+他带着你在街道上穿行——偷窃、开锁、哄骗巡夜人……<br>
+“模拟训练里发生的一切都是使用大书库中所记录的数据生成的，请不要产生负罪感。”似乎看出了你的忧虑，克莱恩主动解释道。
+<br><br>
+你的诡术技能得到了提升。
+<br><br>
+<<link [[继续|GoldenYardSimulateTrainLoad]]>><</link>>
+<</switch>>
+
+
+
+
+
+

@@ -13,6 +13,7 @@
 <<bedroomicon>><<link [[卧室|GoldenYardBedRoom]]>><</link>><br>
 <<bathroomicon>><<link [[浴室|GoldenYardBathRoom]]>><</link>><br>
 <<scarleticon>><<link [[书房|GoldenYardStudyRoom]]>><</link>><br>
+<img class='icon' src="img/skilldoor.png"> <<link [[训练室|GoldenYardSimulateTrain]]>><</link>><br>
 <<templeicon"prayer room">><<link [[祈祷室|GoldenYardPrayRoom]]>><</link>><br>
 <<if $ShowButton == 1>><<stairsicon "down">><<link [[地下室|GoldenYardUnder]]>><</link>><br><</if>>
 <<if $KamiMagicCconfig_icrLinkage >><img class="icon" src="img/misc/warehouse.png"><<link [[仓库|GoldenYardStorage]]>><</link>><br><</if>>

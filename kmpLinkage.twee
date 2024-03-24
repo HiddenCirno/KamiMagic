@@ -18,7 +18,8 @@
 <<domusicon>>[[传送至湖边小屋|Lake House Bedroom]]<br>
 <img class='icon' src="img/misc/icon/island.png">[[传送至四季岛村庄|Desert Village]]<br>
 <<beachicon>><<link [[传送至海底沉船|Deep Sea Ship]]>><<wateraction>><<set $phase to 10>><</link>><br>
-<img class='icon' src="img/misc/icon/gardenplot.png"><<link [[传送至沼泽尽头|Forest]]>><<set $forest to 150>><</link>><br>
+<img class='icon' src="img/misc/icon/gardenplot.png"><<link [[传送至沼泽尽头|Forest]]>><<set $forest to 150>><</link>>
+<br><br>
 	<</if>>
 
 	<<if $KamiMagicCconfig_icrLinkage>>

@@ -9,7 +9,8 @@
 <br><br>
 选择一个地点进行传送<br>
 <<set $RainBowBridgeChant to 1>>
-<span class="gold">模组地点</span><br>
+<span class="gold">模组地点</span>
+<br><br>
 <img class='icon' src="img/rainbow.gif">[[打开非原版传送地点列表|RainbowBridgeModLinkage]]<br>
 <span class="gold">镇内</span><br>
 <<domusicon>>[[传送至宅邸街|Domus Street]]<br>

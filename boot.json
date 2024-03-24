@@ -37,7 +37,8 @@
     "img/status_stress.png",
     "img/status_tired.png",
     "img/goldenyardbeddeluxe.png",
-    "img/music.png"
+    "img/music.png",
+    "img/skilldoor.png"
   ],
   "additionFile": [
     "replace/status_beauty.txt",
