@@ -235,7 +235,7 @@
 <br><br>
 房间的另一侧是一个宽敞而豪华的休息区，配有舒适的真皮沙发和简朴而不失优雅的咖啡桌。这里摆放着一整套手磨咖啡所需的设备与一些精美的茶点，还有刚刚冲泡好的热茶。墙上挂着一幅油画，绘制的是附近的景色，画的一旁是满满当当的酒柜。
 <br><br>
-<<clifficon>><<link [[喝杯咖啡 (0:30)|GoldenYardCoffee]]>><<stress -6>><<if $KamiMagicCconfig_icrLinkage >><<thirsty -640>><</if>><<pass 30>><</link>><<lstress>><<if $KamiMagicCconfig_icrLinkage >><<llthirst>><</if>><br>
+<<clifficon>><<link [[喝杯咖啡 (0:30)|GoldenYardCoffee]]>><<stress -6>><<if $KamiMagicCconfig_icrLinkage >><<thirsty -640>><</if>><<pass 30>><</link>><<lstress>><<if $KamiMagicCconfig_icrLinkage >><<lthirst>><</if>><br>
 <<foodicon"creambun">><<link [[享用茶点 (0:30)|GoldenYardTea]]>><<stress -6>><<if $KamiMagicCconfig_icrLinkage >><<hunger -240>><</if>><<pass 30>><</link>><<lstress>><<if $KamiMagicCconfig_icrLinkage >><<lhunger>><</if>><br>
 <<connudatusicon>><<link [[小酌一杯 (0:30)|GoldenYardBar]]>><<alcohol 200>><<stress -24>><<trauma -12>><<pass 30>><</link>><<llstress>><<ltrauma>><<ggalcohol>><br>
 <<bedicon>><<link [[小憩一会 (1:00)|GoldenYardRest]]>><<stress -12>><<tiredness -12>><<trauma -6>><<pass 60>><</link>><<lstress>><<ltiredness>><<ltrauma>>
