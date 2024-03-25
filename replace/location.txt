@@ -1,0 +1,3 @@
+        <<case "goldenyard">>
+        <img id="location" @src="_imgLoc + 'normal/goldenyard'+_dayState+'.png'">
+        <<case "wolf_cave">>

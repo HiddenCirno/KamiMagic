@@ -1,5 +1,7 @@
 
 :: GoldenYard
+<<set $location to "goldenyard">>
+<<set $outside to 0>>
 <br>
 你正位于<span class="gold">黄金庭院</span>。
 <br><br>

@@ -11,8 +11,8 @@
 <<set $RainBowBridgeChant to 1>>
 <span class="gold">原版地点</span><br>
 <img class='icon' src="img/rainbow.gif">[[打开原版传送地点列表|RainbowBridge]]<br>
-<b><span class="red">如果下方没有显示任何地点，说明你可能没有打开模组联动设置或未确认/储存修改的配置项目（未安装对应模组启用配置可能导致Bug！）</span></b><br>
-
+<b><span class="red">如果下方没有显示任何地点，说明你可能没有打开模组联动设置或未确认/储存修改的配置项目（未安装对应模组启用配置可能导致Bug！）</span></b>
+<br><br>
 	<<if $KamiMagicCconfig_bjxLinkage>>
 <span class="gold">北极星拓展</span><br>
 <<domusicon>>[[传送至湖边小屋|Lake House Bedroom]]<br>
@@ -24,10 +24,10 @@
 
 	<<if $KamiMagicCconfig_icrLinkage>>
 <span class="gold">爱，糖果，与机器人</span><br>
- <<localIcon 'chinatown'>>[[传送至唐人街|BaseScene Chinatown]]<br>
+ <<localIcon 'chinatown'>>[[传送至唐人街|BaseScene Chinatown]]
+<br><br>
 	<</if>>
 
-<br><br>
 <span class="gold">？？？</span><br>
 <<domusicon>><<link [[传送至黄金庭院|GoldenYard]]>><</link>>
 <br><br>

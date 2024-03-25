@@ -1,0 +1,5 @@
+巨大的油画占据了一整面墙。
+<br><br>
+<img class='icon' src="img/rainbow.gif"> <<link [[检查油画|PaintWorldCheckPaint]]>><</link>>
+<br><br>
+<<if $stress gte $stressmax>>

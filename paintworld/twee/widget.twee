@@ -1,0 +1,10 @@
+:: PaintWorldWidget [widget]
+
+<<widget "RealWorldPaint">>
+巨大的油画占据了一整面墙。
+<br><br>
+<img class='icon' src="img/rainbow.gif"> <<link [[检查油画|RealWorldCheckPaint]]>><</link>>
+<br><br>
+<</widget>>
+
+

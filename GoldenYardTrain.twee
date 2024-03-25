@@ -1,46 +1,103 @@
-:: GoldenYardSimulateTrain [widget]
+:: GoldenYardSimulateTrain
 <br>
 你正位于<span class="gold">黄金庭院</span>二楼的模拟训练室。
 <br><br>
 <<GoldenYardMusic>>
 这间房间似乎很特殊，它的大门表面上与黄金庭院的装修风格一致，实际上是一扇伪装的很好的自动门，你进来之后，它自动关上了，房间里陷入了一片黑暗。<br>
 两盏射灯从天花板上洒下，房间的中央是一个圆柱形的奇怪设施。<br>
-酒红色头发的女孩出现在你身边。<br>
-”欢迎来到模拟训练室，我是这里的主控智能程序，Eden。“<br>
+全息投影的少女出现在你身边。<br>
+“欢迎来到模拟训练室，我是这里的主控智能程序，诺玛。”<br>
 “如果您需要进行技能训练，请站到意识投射器中间。”她对你露出一个温和的笑容。
 <br><br>
 
-<<link [[开始训练|GoldenYardSimulateTrainLoad]]>><</link>>
+<<link [[开始训练|GoldenYardSimulateTrainLoad]]>><</link>><br>
 <<link [[离开|GoldenYard]]>><</link>>
 
 
 :: GoldenYardSimulateTrainLoad
 <br>
-你站到了房间中央的装置里——意识投射器，Eden是这么称呼它的。<br>
-“检测到访客，意识投射器启动。”Eden的声音在你耳边响起，意识投射器逐渐开始加速旋转。<br>
+你站到了房间中央的装置里——意识投射器，诺玛是这么称呼它的。<br>
+“检测到访客，意识投射器启动。”诺玛的声音在你耳边响起，意识投射器逐渐开始加速旋转。<br>
 一阵眩晕过后，你的视线重新变得清晰，你下意识的打量四周，周围空无一物，只有大量的云雾缭绕在你身边。
 <br><br>
 虚拟光屏出现在你面前。
 <br><br>
 请选择你需要训练的技能。<br>
-<<link [[诡术|GoldenYardSimulateTrainLoad]]>><<set $GoldenSkilTrain to 1>><</link>>
+<<link [[诡术 (1:00)|GoldenYardSimulateTrainEvent]]>><<skulduggery 5>><<pass 60>><<set $GoldenSkilTrain to 1>><</link>><<gskulduggery>><br>
+<<link [[舞蹈 (1:00)|GoldenYardSimulateTrainEvent]]>><<danceskill 5>><<pass 60>><<set $GoldenSkilTrain to 2>><</link>><<gdanceskill>><br>
+<<link [[游泳 (1:00)|GoldenYardSimulateTrainEvent]]>><<set $swimmingskill += 5>><<set $swimmingskill to Math.clamp($swimmingskill, 0, 1000)>><<pass 60>><<set $GoldenSkilTrain to 3>><</link>><<gswimming>><br>
+<<link [[运动 (1:00)|GoldenYardSimulateTrainEvent]]>><<athletics 5>><<pass 60>><<set $GoldenSkilTrain to 4>><</link>><<gathletics>><br>
+<<link [[护理 (1:00)|GoldenYardSimulateTrainEvent]]>><<tending 5>><<pass 60>><<set $GoldenSkilTrain to 5>><</link>><<gtending>><br>
+<<link [[家务 (1:00)|GoldenYardSimulateTrainEvent]]>><<housekeeping 5>><<pass 60>><<set $GoldenSkilTrain to 6>><</link>><<ghousekeeping>><br>
+<<link [[意志 (1:00)|GoldenYardSimulateTrainEvent]]>><<willpower 5>><<pass 60>><<set $GoldenSkilTrain to 7>><</link>><<gwillpower>><br>
+<br>
 <<link [[离开|GoldenYardSimulateTrain]]>><</link>>
 
 
 :: GoldenYardSimulateTrainEvent
 <br>
-周围的场景开始变幻，在一片白光之后，云雾散去了。
+周围的场景开始变幻，在一片白光之后，云雾散去了。<br>
 <<switch $GoldenSkilTrain>>
 <<case 1>>
 你来到了一处街道上，戴着单边眼镜的年轻人出现在你面前。<br>
-“虚拟人格初始化完成。欢迎来到模拟训练室，我是「诡术」技能的教师，克莱恩。”年轻人微笑着向你鞠躬。<br>
+“虚拟人格初始化完成。欢迎来到模拟训练室，我是「诡术」技能的导师，克莱恩。”年轻人微笑着向你鞠躬。<br>
 他带着你在街道上穿行——偷窃、开锁、哄骗巡夜人……<br>
 “模拟训练里发生的一切都是使用大书库中所记录的数据生成的，请不要产生负罪感。”似乎看出了你的忧虑，克莱恩主动解释道。
 <br><br>
 你的诡术技能得到了提升。
 <br><br>
-<<link [[继续|GoldenYardSimulateTrainLoad]]>><</link>>
+<<case 2>>
+你进入了一间舞蹈室，诺玛的影像出现在你身边。<br>
+“很遗憾，大书库中没有找到合适的人格数据，所以暂时由我来担任「舞蹈」技能的导师。”<br>
+“请放松，对，腿再抬一点……”<br>
+即使只是暂时顶班，她依然很用心的在教导你。
+<br><br>
+你的舞蹈技能得到了提升。
+<br><br>
+<<case 3>>
+你发现自己身处大海之中，蓝发的姑娘在旁边注视着你。<br>
+“你好呀，我是「游泳」技能的导师，南宫五月。”她在你身边游了一圈，展现自己高超的技巧。<br>
+她带着你在深海之中遨游——你还是头一次有这种体验。<br>
+“海里是海妖的世界，这个……可能是天赋吧？”当你问起她的技巧时，她这般回答。
+<br><br>
+你的游泳技能得到了提升。
+<br><br>
+<<case 4>>
+你站在巨大的操场上，诺玛的影像出现在你身边。<br>
+“很遗憾，大书库中没有找到合适的人格数据，所以暂时由我来担任「运动」技能的导师。”<br>
+“跑起来！注意调整你的呼吸！一！一！一二一！”<br>
+训练结束之后，你感觉自己的腿在发抖，但诺玛告诉你这只是模拟的感觉，有必要这么真实吗？
+<br><br>
+你的运动技能得到了提升。
+<br><br>
+<<case 5>>
+你身处一间医院里，诺玛的影像出现在你身边。<br>
+“很遗憾，大书库中没有找到合适的人格数据，所以暂时由我来担任「护理」技能的导师。”<br>
+“垂直进针垂直出针，很好。单手打结的操作还记得吗？对，绕两圈……”<br>
+训练结束了，尽管你知道这一切只是模拟，但手术台上的经历仍然让你印象深刻。
+<br><br>
+你的护理技能得到了提升。
+<br><br>
+<<case 6>>
+你位于巨大的洋馆中，蓝色女仆装的女性站在你面前。<br>
+“虚拟人格初始化完成。欢迎来到模拟训练室，我是「家务」技能的导师，十六夜咲夜。”她向你提裙行礼。<br>
+她带着你在洋馆中练习各种家务技能——缝补布娃娃、打扫房间、整理花圃、检查地下室的门锁、拿打瞌睡的门卫练习飞刀……等一下，是不是有什么奇怪的东西混进去了？<br>
+训练结束了，尽管你十分好奇，但模拟程序并没有给你探索地下室的机会。
+<br><br>
+你的家务技能得到了提升。
+<br><br>
+<<case 7>>
+你在一间教室里，学生打扮的年轻人出现在你面前。<br>
+不知为何，看到他时，你产生了一种莫名的压力。<br>
+“虚拟人格初始化完成。欢迎来到模拟训练室，我是「家务」技能的导师，宋书航。”他似乎看出了你的焦躁，“请不要把那两个字说出来，我会很为难的。”<br>
+“来，看着我的眼睛。”<br>
+一个声音在你耳边如炸雷般响起——“何为孝？何为爱？知道母爱的伟大吗？！”<br>
+训练结束了，宋书航告诉你，这个叫怀孕凝视——短短十秒钟经历怀胎十月真是太可怕了。<br>
+<br><br>
+你的意志属性得到了提升。
+<br><br>
 <</switch>>
+<<link [[继续|GoldenYardSimulateTrainLoad]]>><<set $GoldenSkilTrain to 0>><</link>>
 
 
 

@@ -7,7 +7,9 @@
   "scriptFileList_earlyload": [],
   "scriptFileList_preload": [],
   "styleFileList": [],
-  "scriptFileList": [],
+  "scriptFileList": [
+    "paintworld/js/NPC.js"
+  ],
   "tweeFileList": [
     "main.twee",
     "rainbowbridge.twee",
@@ -16,7 +18,11 @@
     "GoldenYardMusic.twee",
     "GoldenYard.twee",
     "GoldenYardStudy.twee",
-    "GoldenYardBar.twee"
+    "GoldenYardBar.twee",
+    "GoldenYard.twee",
+    "GoldenYardTrain.twee",
+    "paintworld/twee/widget.twee",
+    "paintworld/twee/home.twee"
   ],
   "imgFileList": [
     "img/rainbow.gif",
@@ -38,7 +44,11 @@
     "img/status_tired.png",
     "img/goldenyardbeddeluxe.png",
     "img/music.png",
-    "img/skilldoor.png"
+    "img/skilldoor.png",
+    "img/misc/normal/goldenyard_dawn.png",
+    "img/misc/normal/goldenyard_day.png",
+    "img/misc/normal/goldenyard_dusk.png",
+    "img/misc/normal/goldenyard_night.png"
   ],
   "additionFile": [
     "replace/status_beauty.txt",
@@ -48,7 +58,9 @@
     "replace/status_sex.txt",
     "replace/status_stress.txt",
     "replace/status_tired.txt",
-    "replace/GoldenYardBed.txt"
+    "replace/GoldenYardBed.txt",
+    "replace/location.txt",
+    "paintworld/replace/home.txt"
   ],
   "addonPlugin": [
     {
@@ -57,10 +69,15 @@
       "modVersion": "1.0.0",
       "params": [
         {
-        "passage": "Widgets Outfits",
-        "findRegex": "<<default>>",
-        "replaceFile": "replace/GoldenYardBed.txt"
-      }
+          "passage": "Widgets Outfits",
+          "findRegex": "<<default>>",
+          "replaceFile": "replace/GoldenYardBed.txt"
+        },
+        {
+          "passage": "Widgets",
+          "findRegex": "<<case \"wolf_cave\">>",
+          "replaceFile": "replace/location.txt"
+        }
       ]
     },
     {

@@ -13,6 +13,10 @@ simpleFrameworks.addto('BeforeLinkZone', {
     passage: 'Temple Cloister',
     widget: 'LearnKamiMagic',
 });
+simpleFrameworks.addto('BeforeLinkZone', {
+    passage: 'Orphanage',
+    widget: 'RealWorldPaint',
+});
 simpleFrameworks.addto('iModCheats', 'KamiMaigcLearnCheat');
 simpleFrameworks.addto('iModHeader', 'KamiMaigcChant');
 simpleFrameworks.addto('iModReady', 'InvisableStart');
