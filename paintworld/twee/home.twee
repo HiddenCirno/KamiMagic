@@ -2,7 +2,62 @@
 <br>
 占据了一整面墙的油画，上面描绘着欲都小镇的全貌，你从上面看到了许多熟悉的东西——学校，神殿，孤儿院……看起来并无异常。
 <br><br>
+<<if !$PaintWorldOpenEvent>>
+<<if Time.dayState is "night" and (isBloodmoon() or $forcedBloodmoon)>>
+<<link "触摸" "PaintWorldHome">><<set $PaintWorldTouchPaint to false>><</link>><br>
+<</if>>
+<<else>>
+<<if Time.dayState is "night">> 
+<<link "触摸" "PaintWorldHome">><<set $PaintWorldTouchPaint to false>><</link>><br>
+<</if>>
+<</if>>
 <<link [[确认|Orphanage]]>><</link>>
 
 
+:: PaintWorldCheckPaint
+<br>
+占据了一整面墙的油画，上面描绘着欲都小镇的全貌，你在上面发现了一些奇怪的东西——外表破损的巨大建筑，古朴陈旧的寺庙，风格与神殿截然不同的教堂……
+<br><br>
+<<link "触摸" "Orphanage">><<set $PaintWorldTouchPaint to false>><<endevent>><</link>><br>
+<<link [[确认|PaintWorldHome]]>><</link>>
 
+
+:: PaintWorldHome
+<<touchpaint>>
+<br>
+<<npc Firede>>
+你正站在孤儿院的正厅里，这里安静到落针可闻。
+<br><br>
+<<if !$PaintWorldOpenEvent>>
+<<set C.npc["Firede"].init to 1>>
+“又有迷途之人误入画中世界了么？”一个人影从黑暗之中走出。
+“能够进入这里说明你足够特殊，不管怎样，欢迎来到欲都小镇的另一面。我是芙莉德，在此看守画中世界，偿还自己曾犯下的罪。”
+<br><br>
+<<set $PaintWorldOpenEvent to true>>
+<</if>>
+巨大的油画占据了一整面墙。
+<br>
+<img class='icon' src="img/paintworld/icon/paint.png"> <<link [[检查油画 (0:01)|PaintWorldCheckPaint]]>><<pass 1>><</link>>
+<br><br>
+芙莉德站在阴影中。
+<br>
+<img class='icon' src="img/paintworld/icon/chat.png"> <<link [[与芙莉德搭话 (0:01)|$passage]]>><<pass 1>><</link>>
+<br><br>
+<<gardenicon>><<link [[花园 (0:01)|$passage]]>><<pass 1>><</link>>
+<br><br>
+<<officeicon>><<link [[贝利办公室 (0:01)|$passage]]>><<pass 1>><</link>>
+<br>
+<<bedicon>><<link [[卧室 (0:01)|PaintWorldEmptyRoom]]>><<pass 1>><</link>>
+<br>
+<<bathroomicon>><<link [[浴室 (0:01)|PaintWorldEmptyRoom]]>><<pass 1>><</link>>
+<br>
+<<bedroomicon>><<link [[罗宾的房间 (0:01)|$passage]]>><<pass 1>><</link>>
+<br><br>
+<<dooricon "orphanage">><<link [[离开孤儿院 (0:01)|$passage]]>><<pass 1>><</link>>
+
+
+:: PaintWorldEmptyRoom
+<br>
+门像是和空间固定在了在一起，纹丝不动。
+<br><br>
+<<link [[返回|$passagePrev]]>><</link>>

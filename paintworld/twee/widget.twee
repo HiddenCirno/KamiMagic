@@ -2,9 +2,16 @@
 
 <<widget "RealWorldPaint">>
 巨大的油画占据了一整面墙。
-<br><br>
-<img class='icon' src="img/rainbow.gif"> <<link [[检查油画|RealWorldCheckPaint]]>><</link>>
+<br>
+<img class='icon' src="img/paintworld/icon/paint.png"> <<link [[检查油画 (0:01)|RealWorldCheckPaint]]>><<pass 1>><</link>>
 <br><br>
 <</widget>>
 
-
+<<widget "touchpaint">>
+<<if !$PaintWorldTouchPaint>>
+<br>
+你伸出手去触碰油画，周围的空间似乎扭曲了一下。
+<br>
+<<set $PaintWorldTouchPaint to true>>
+<</if>>
+<</widget>>

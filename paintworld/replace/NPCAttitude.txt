@@ -1,0 +1,15 @@
+<!-- Default cases for all other NNPCs -->
+
+<<case Firede>>
+			芙莉德
+            <<if $NPCName[_i].love gte 80>>
+                <span class="green">将你视作挚友。</span>
+                <<elseif $NPCName[_i].love gte 60>>
+                <span class="teal">愿意向你倾诉。</span>
+                <<elseif $NPCName[_i].love gte 40>>
+                <span class="lblue">认为你值得信任。</span>
+                <<elseif $NPCName[_i].love gte 20>>
+                <span class="blue">对你感到好奇。</span>
+                <<else>>
+                对你毫不在意。
+            <</if>>

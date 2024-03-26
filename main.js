@@ -13,6 +13,10 @@ simpleFrameworks.addto('BeforeLinkZone', {
     passage: 'Temple Cloister',
     widget: 'LearnKamiMagic',
 });
+simpleFrameworks.addto('iModHeader', {
+    passage: 'Orphanage',
+    widget: 'touchpaint',
+});
 simpleFrameworks.addto('BeforeLinkZone', {
     passage: 'Orphanage',
     widget: 'RealWorldPaint',
@@ -66,6 +70,9 @@ Object.defineProperty(window, 'KamiMagicCconfig_icrLinkage', { value: false } );
 Object.defineProperty(window, 'GoldenYardMusicPlay', { value: false } )
 Object.defineProperty(window, 'GoldenYardMusicIndex', { value: 0 } )
 Object.defineProperty(window, 'GoldenSkilTrain', { value: 0 } )
+//PaintWorld
+Object.defineProperty(window, 'PaintWorldOpenEvent', { value: false } )
+Object.defineProperty(window, 'PaintWorldTouchPaint', { value: false } )
 //Button
 simpleFrameworks.addto('iModOptions', 'KamiMagicConfig')
 simpleFrameworks.addto('iModOptions', 'RButtonShow')

@@ -48,7 +48,11 @@
     "img/misc/normal/goldenyard_dawn.png",
     "img/misc/normal/goldenyard_day.png",
     "img/misc/normal/goldenyard_dusk.png",
-    "img/misc/normal/goldenyard_night.png"
+    "img/misc/normal/goldenyard_night.png",
+    "img/paintworld/icon/paint.png",
+    "img/paintworld/icon/campfire.png",
+    "img/paintworld/icon/campfirestr.png",
+    "img/paintworld/icon/chat.png"
   ],
   "additionFile": [
     "replace/status_beauty.txt",
@@ -60,7 +64,7 @@
     "replace/status_tired.txt",
     "replace/GoldenYardBed.txt",
     "replace/location.txt",
-    "paintworld/replace/home.txt"
+    "paintworld/replace/NPCAttitude.txt"
   ],
   "addonPlugin": [
     {
@@ -77,6 +81,11 @@
           "passage": "Widgets",
           "findRegex": "<<case \"wolf_cave\">>",
           "replaceFile": "replace/location.txt"
+        },
+        {
+          "passage": "Widgets Named Npcs",
+          "findRegex": "<!-- Default cases for all other NNPCs -->",
+          "replaceFile": "paintworld/replace/NPCAttitude.txt"
         }
       ]
     },
