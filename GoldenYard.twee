@@ -12,16 +12,34 @@
 <br><br>
 你静静地待在庄园里，这里似乎有种神奇的魔力，即使什么都不做，你依然感到安心与宁静。
 <br><br>
-<<bedroomicon>><<link [[卧室|GoldenYardBedRoom]]>><</link>><br>
-<<bathroomicon>><<link [[浴室|GoldenYardBathRoom]]>><</link>><br>
-<<scarleticon>><<link [[书房|GoldenYardStudyRoom]]>><</link>><br>
-<img class='icon' src="img/skilldoor.png"> <<link [[训练室|GoldenYardSimulateTrain]]>><</link>><br>
-<<templeicon"prayer room">><<link [[祈祷室|GoldenYardPrayRoom]]>><</link>><br>
+<<domusicon>><<link [[进入建筑|GoldenYardLivingRoom]]>><</link>><br>
 <<if $ShowButton == 1>><<stairsicon "down">><<link [[地下室|GoldenYardUnder]]>><</link>><br><</if>>
 <<if $KamiMagicCconfig_icrLinkage >><img class="icon" src="img/misc/warehouse.png"><<link [[仓库|GoldenYardStorage]]>><</link>><br><</if>>
 <<lakeicon>><<link [[去湖边走走|GoldenYardLake]]>><</link>>
 <br><br>
 <<link [[离开|RainbowBridge]]>><</link>>
+
+:: GoldenYardLivingRoom
+<<set $outside to 0>>
+<br>
+你正位于<span class="gold">黄金庭院</span>的大厅。
+<br><br>
+走进黄金庭院的这座宏伟的欧式建筑，便能看见奢华与精致交相辉映。高耸的天花板上镶嵌着精美的花饰，仿佛一幅天空中的艺术品。墙壁由细致雕刻的壁板和华丽的壁画组成，那是一些人们耳熟能详的宗教画作的精致的复刻品，你一眼就在里面发现了《最后的晚餐》与《创造亚当》。宽阔的地毯覆盖着地面，柔软的触感和华丽的图案为房间带来温暖和舒适。地毯上方悬挂着一盏华丽的吊灯，水晶的闪耀与玲珑的灯罩相映成趣，为客厅带来了璀璨的光芒。
+<br><br>
+巨大的法式窗户透过华丽的窗帘，将外界的光芒与景象投射到了室内，你能看到窗外的雪山与湖泊。
+<br><br>
+<span class="gold">一楼</span><br>
+<<bedroomicon>><<link [[卧室|GoldenYardBedRoom]]>><</link>><br>
+<<bathroomicon>><<link [[浴室|GoldenYardBathRoom]]>><</link>><br>
+<<scarleticon>><<link [[书房|GoldenYardStudyRoom]]>><</link>><br>
+<br><span class="gold">二楼</span><br>
+<img class='icon' src="img/skilldoor.png"> <<link [[训练室|GoldenYardSimulateTrain]]>><</link>><br>
+<<templeicon"prayer room">><<link [[祈祷室|GoldenYardPrayRoom]]>><</link>>
+<br><br>
+<<if $ShowButton == 1>><<stairsicon "down">><<link [[地下室|GoldenYardUnder]]>><</link>><br><</if>>
+<<if $KamiMagicCconfig_icrLinkage >><img class="icon" src="img/misc/warehouse.png"><<link [[通过侧门前往仓库|GoldenYardStorage]]>><</link>><br><</if>>
+<br><br>
+<<link [[回到庭院|GoldenYard]]>><</link>>
 
 
 :: GoldenYardBedRoom
@@ -35,7 +53,7 @@
 <<wardrobeicon>><<link [[衣帽间|GoldenYardClothRoom]]>><</link>><br>
 <<clifficon>><<link [[休息区|GoldenYardRestRoom]]>><</link>>
 <br><br>
-<<link [[离开|GoldenYard]]>><</link>>
+<<link [[离开|GoldenYardLivingRoom]]>><</link>>
 
 
 :: GoldenYardBed
@@ -134,7 +152,7 @@
 <<wardrobeicon>><<link [[衣柜|GoldenYardCloth]]>><</link>><br>
 <<mirroricon>><<link [[镜子|GoldenYardMirror]]>><<preMirror>><</link>>
 <br>
-<img class='icon' src="img\misc\icon\furniture\singlebeddeluxe.png"> <<link [[回到卧房床边|GoldenYardBed]]>><</link>><br>
+<img class='icon' src="img\misc\icon\furniture\singlebeddeluxe.png"> <<link [[回到休息区|GoldenYardBed]]>><</link>><br>
 <br>
 <<link [[离开|GoldenYardBedRoom]]>><</link>>
 
@@ -205,7 +223,7 @@
 <<bodyliquid _type "nectar" -5>><<run $(`#stats${_type}nectar`).html(Math.trunc($player.bodyliquid[_type].nectar))>>
 <</for>>
 <<updatesidebarimg>><<stress -12>><<tiredness -12>><<pass 15>><</link>><<lstress>><<ltiredness>><br>
-<<bathroomicon"shower">><<link [[淋浴 (0:30)|GoldenYardBath2]]>>
+<<bathroomicon"shower">><<link [[淋浴 (0:15)|GoldenYardBath2]]>>
 <<for _type range ["neck","rightarm","leftarm","thigh","bottom","tummy","chest","face","hair","feet","vaginaoutside","vagina","penis","anus","mouth"]>>
 <<bodyliquid _type "goo" -5>><<run $(`#stats${_type}goo`).html(Math.trunc($player.bodyliquid[_type].goo))>>
 <<bodyliquid _type "semen" -5>><<run $(`#stats${_type}semen`).html(Math.trunc($player.bodyliquid[_type].semen))>>
@@ -213,7 +231,7 @@
 <</for>>
 <<updatesidebarimg>><<stress -6>><<tiredness -6>><<pass 15>><</link>><<lstress>><<ltiredness>>
 <br><br>
-<<link [[离开|GoldenYard]]>><</link>>
+<<link [[离开|GoldenYardLivingRoom]]>><</link>>
 
 
 :: GoldenYardBath1
@@ -252,7 +270,7 @@
 <<historyicon>><<link [[学习历史 (1:00)|GoldenYardStudyHistory]]>><<historyskill 6>><<pass 60>>><</link>><<ghistory>><br>
 <<scarleticon>><<link [[课外读物 (1:00)|GoldenYardStudyRest]]>><<stress -12>><<tiredness -12>><<trauma -12>><<pass 60>><</link>><<lstress>><<ltiredness>><<ltrauma>>
 <br><br>
-<<link [[离开|GoldenYard]]>><</link>>
+<<link [[离开|GoldenYardLivingRoom]]>><</link>>
 
 
 :: GoldenYardMusic
@@ -304,7 +322,7 @@
 <<if $purity gte ((1000 / 7) * 7)>>
 <<ggrace>>
 <</if>><br>
-<<getouticon>><<link [[下楼|GoldenYard]]>><</link>>
+<<getouticon>><<link [[下楼|GoldenYardLivingRoom]]>><</link>>
 
 
 
@@ -339,7 +357,7 @@
 <<if $purity gte ((1000 / 7) * 7)>>
 <<ggrace>>
 <</if>><br>
-<<getouticon>><<link [[下楼|GoldenYard]]>><</link>>
+<<getouticon>><<link [[下楼|GoldenYardLivingRoom]]>><</link>>
 
 
 :: GoldenYardLake
@@ -365,6 +383,7 @@
 
 
 :: GoldenYardUnder
+<<set $outside to 0>>
 <br>
 你正位于<span class="gold">黄金庭院</span>的地下室。
 <br><br>
@@ -376,11 +395,13 @@
 <<highicon>><<link [[拿走一堆 (£10000)|GoldenYardUnder1]]>><<set $money += 1000000>><</link>><br>
 <<highicon>><<link [[拿走一大堆 (£50000)|GoldenYardUnder1]]>><<set $money += 5000000>><</link>>
 <br><br>
-<<getouticon>><<link [[返回庄园|GoldenYard]]>>-<</link>>
+<<getouticon>><<link [[返回庄园|GoldenYard]]>>-<</link>><br>
+<<getouticon>><<link [[上楼|GoldenYardLivingRoom]]>><</link>><br>
 
 
 :: GoldenYardUnder1
 <br>
 你从堆成小山的钞票中拿取了一部分。
 <br><br>
-<<getouticon>><<link [[返回庄园|GoldenYard]]>>-<</link>>
+<<getouticon>><<link [[返回庄园|GoldenYard]]>>-<</link>><br>
+<<getouticon>><<link [[上楼|GoldenYardLivingRoom]]>><</link>><br>

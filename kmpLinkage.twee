@@ -34,10 +34,12 @@
 <<link [[离开|$passagePrev]]>><</link>>
 
 :: GoldenYardStorage
+<<set $outside to 0>>
 你进入黄金庭院虚幻的车库门，这里的空间摆放了大量的货架，也许你可以在里面储存物品。<br>
 <<button lanSwitch('ITEMS','查看你身上的道具')>><<iModReplace "pocketItemsOverlay">><</button>>
 <br><br>
-<<link [[离开|GoldenYard]]>><</link>>
+<<getouticon>><<link [[回到庄园|GoldenYard]]>><</link>><br>
+<<getouticon>><<link [[回到别墅|GoldenYardLivingRoom]]>><</link>><br>
 <br><br>
 <<set $tvar.storage to 'warehouse'>>
 <<set _storage to []>>
