@@ -41,7 +41,11 @@
 <br><br>
 芙莉德站在阴影中。
 <br>
-<img class='icon' src="img/paintworld/icon/chat.png"> <<link [[与芙莉德搭话 (0:01)|$passage]]>><<pass 1>><</link>>
+<img class='icon' src="img/paintworld/icon/chat.png"> <<link [[与芙莉德搭话 (0:01)|FiredeChat]]>><<pass 1>><</link>>
+<<if !$PaintWorldAmuletLost>>
+<br>
+<img class='icon' src="img/paintworld/icon/chat.png"> <<link [[询问御守的事 (0:01)|FiredeAmulet]]>><<pass 1>><</link>>
+<</if>>
 <br><br>
 <<gardenicon>><<link [[花园 (0:01)|$passage]]>><<pass 1>><</link>>
 <br><br>
@@ -53,7 +57,7 @@
 <br>
 <<bedroomicon>><<link [[罗宾的房间 (0:01)|$passage]]>><<pass 1>><</link>>
 <br><br>
-<<dooricon "orphanage">><<link [[离开孤儿院 (0:01)|$passage]]>><<pass 1>><</link>>
+<<dooricon "orphanage">><<link [[离开孤儿院 (0:01)|PaintWorldDomusStreet]]>><<pass 1>><</link>>
 
 
 :: PaintWorldEmptyRoom
@@ -61,3 +65,58 @@
 门像是和空间固定在了在一起，纹丝不动。
 <br><br>
 <<link [[返回|$passagePrev]]>><</link>>
+
+
+:: FiredeChat
+<<switch random(1, 4)>>
+<<case 1>>
+“画中世界是欲都小镇的另一面，有些地方与现实并不一致，探索时还请多加小心。”
+<<case 2>>
+“门打不开吗？画中世界的大部分门都是与空间融为一体的，如果没有「锚点」连接，这是正常现象。”
+<<case 3>>
+“我的过去……？过去对于如今的我已经不再重要，请不要再问这种事了。”
+<<case 4>>
+“一些拥有特殊性质的物品或许可以帮你在画中世界收获更多。”
+<</switch>>
+<br><br>
+<<link [[继续|$passagePrev]]>><</link>>
+
+
+:: FiredeAmulet
+你将护身符拿给芙莉德看。
+<br>
+“这是……平安御守吗？真是令人怀念的东西。”芙莉德接过护身符，“<span class="gold">它可以减轻你的生存压力，把它带在身上，会将贝利的债务需求降低一半</span>。在画中世界的边缘有一座寺庙，你或许可以在那里找到类似的东西。”
+<br>
+<<link [[交付护身符|LostAmulet]]>><<set $PaintWorldAmuletLost to true>><<npcincr "Firede" love 10>><</link>><<glove>>
+<br>
+<<link [[不交付|PaintWorldHome]]>><</link>>
+
+
+:: LostAmulet
+“把它送给我吗……？我明白了，谢谢你的好意，我会珍惜它的。”
+<br>
+<span class="gold">你现在可以探索画中世界的某些地点了。</span>
+<br>
+<<link [[继续|PaintWorldHome]]>><</link>>
+
+:: PaintWorldDomusStreet
+<br>
+你正待在宅邸街，孤儿院就在这条街上，街上到处都是外观相似的小房子。街道上一片死寂，昏暗的路灯散发着些许光芒。
+<br><br>
+可访问地点
+<br>
+<<homeicon>><<link [[回家 (0:01)->PaintWorldHome]]>><<pass 1>><</link>>
+<br>
+<<dooricon "domus">><<link [[接近其中一间房子(0:02)|PaintWorldEmptyRoom]]>><<pass 2>><</link>>
+<br><br>
+其它区域
+
+
+
+
+
+
+
+
+
+

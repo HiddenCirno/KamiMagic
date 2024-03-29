@@ -146,6 +146,7 @@
 <br>
 <<set $finish to 1>> 
 <<set $enemyhealth to 0>>
+<<set $tentacles.active to 0>>
 <<set $KamiMagicJudgeChant to 0>>
 <</if>>
 <<if $KamiMagicPurgeChant == 1>>

@@ -15,3 +15,31 @@
 <<set $PaintWorldTouchPaint to true>>
 <</if>>
 <</widget>>
+
+<<widget "forceback">>
+<<if Time.dayState is "day">>
+现实世界天亮了。
+你的意识渐渐模糊……
+<</if>>
+<</widget>>
+
+<<widget "amuletstatus">>
+<br>
+<<if !$PaintWorldAmuletLost>>
+你持有<span class="gold">平安御守</span>。
+<br>
+<</if>>
+<</widget>>
+
+<<widget "amuleteffect">>
+<<if !$PaintWorldAmuletLost&&!$PaintWorldAmuletActive>>
+<<set $rentmoney *= 0.5>>
+<<set $PaintWorldAmuletActive to true>>
+<</if>>
+<<if $PaintWorldAmuletLost>>
+<<if $PaintWorldAmuletActive>>
+<<set $rentmoney *= 2>>
+<<set $PaintWorldAmuletActive to false>>
+<</if>>
+<</if>>
+<</widget>>

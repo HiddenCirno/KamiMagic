@@ -23,11 +23,13 @@ simpleFrameworks.addto('BeforeLinkZone', {
 });
 simpleFrameworks.addto('iModCheats', 'KamiMaigcLearnCheat');
 simpleFrameworks.addto('iModHeader', 'KamiMaigcChant');
+simpleFrameworks.addto('iModHeader', 'amuleteffect');
 simpleFrameworks.addto('iModReady', 'InvisableStart');
 simpleFrameworks.addto('iModFooter', 'InvisableComplete');
 simpleFrameworks.addto('iModFooter', 'KamiMaigc'); 
 simpleFrameworks.addto('ModStatusBar', 'GraceBar')
 simpleFrameworks.addto('ModCharaDescription', 'KamiMagicRecord')
+simpleFrameworks.addto('ModCharaDescription', 'amuletstatus')
 //Var
 //KaMi
 Object.defineProperty(window, 'KamiMagicCleanChant', { value: 0 } )
@@ -64,8 +66,8 @@ Object.defineProperty(window, 'ShowKamiMagicMenu', { value: false } )
 Object.defineProperty(window, 'KamiMagicDebug', { value: true } )
 Object.defineProperty(window, 'ShowButton', { value: 0 } )
 //联动
-Object.defineProperty(window, 'KamiMagicCconfig_bjxLinkage', { value: false } );
-Object.defineProperty(window, 'KamiMagicCconfig_icrLinkage', { value: false } );
+Object.defineProperty(window, 'KamiMagicCconfig_bjxLinkage', { value: false } )
+Object.defineProperty(window, 'KamiMagicCconfig_icrLinkage', { value: false } )
 //GoldenYard
 Object.defineProperty(window, 'GoldenYardMusicPlay', { value: false } )
 Object.defineProperty(window, 'GoldenYardMusicIndex', { value: 0 } )
@@ -73,6 +75,9 @@ Object.defineProperty(window, 'GoldenSkilTrain', { value: 0 } )
 //PaintWorld
 Object.defineProperty(window, 'PaintWorldOpenEvent', { value: false } )
 Object.defineProperty(window, 'PaintWorldTouchPaint', { value: false } )
+Object.defineProperty(window, 'PaintWorldAmuletLost', { value: false } )
+Object.defineProperty(window, 'PaintWorldAmuletStatus', { value: false } )
+Object.defineProperty(window, 'PaintWorldAmuletActive', { value: false } )
 //Button
 simpleFrameworks.addto('iModOptions', 'KamiMagicConfig')
 simpleFrameworks.addto('iModOptions', 'RButtonShow')
