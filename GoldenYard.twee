@@ -24,6 +24,7 @@
 <br>
 你正位于<span class="gold">黄金庭院</span>的大厅。
 <br><br>
+<<GoldenYardMusic>>
 走进黄金庭院的这座宏伟的欧式建筑，便能看见奢华与精致交相辉映。高耸的天花板上镶嵌着精美的花饰，仿佛一幅天空中的艺术品。墙壁由细致雕刻的壁板和华丽的壁画组成，那是一些人们耳熟能详的宗教画作的精致的复刻品，你一眼就在里面发现了《最后的晚餐》与《创造亚当》。宽阔的地毯覆盖着地面，柔软的触感和华丽的图案为房间带来温暖和舒适。地毯上方悬挂着一盏华丽的吊灯，水晶的闪耀与玲珑的灯罩相映成趣，为客厅带来了璀璨的光芒。
 <br><br>
 巨大的法式窗户透过华丽的窗帘，将外界的光芒与景象投射到了室内，你能看到窗外的雪山与湖泊。
@@ -49,7 +50,7 @@
 <<GoldenYardMusic>>
 走进这间十分宽敞的卧室，你立刻被奢华的氛围所包围。天花板上装饰着精美的壁画，展现出宏伟的场景与栩栩如生的花卉图案。墙上挂着华丽的挂毯，织就了一个充满传奇色彩的神秘故事。对面是占据了一整面墙的落地窗，夜幕般深沉的窗帘紧闭着，柔和的灯光从水晶吊灯中洒下，照亮了整个房间。
 <br><br>
-<img class='icon' src="img\misc\icon\furniture\singlebeddeluxe.png"> <<link [[床|GoldenYardBed]]>><</link>><br>
+<img class='icon' src="img/goldenyardbeddeluxe.png"> <<link [[床|GoldenYardBed]]>><</link>><br>
 <<wardrobeicon>><<link [[衣帽间|GoldenYardClothRoom]]>><</link>><br>
 <<clifficon>><<link [[休息区|GoldenYardRestRoom]]>><</link>>
 <br><br>
@@ -152,7 +153,7 @@
 <<wardrobeicon>><<link [[衣柜|GoldenYardCloth]]>><</link>><br>
 <<mirroricon>><<link [[镜子|GoldenYardMirror]]>><<preMirror>><</link>>
 <br>
-<img class='icon' src="img\misc\icon\furniture\singlebeddeluxe.png"> <<link [[回到休息区|GoldenYardBed]]>><</link>><br>
+<img class='icon' src="img/goldenyardbeddeluxe.png"> <<link [[回到床边|GoldenYardBed]]>><</link>><br>
 <br>
 <<link [[离开|GoldenYardBedRoom]]>><</link>>
 

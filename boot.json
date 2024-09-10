@@ -52,7 +52,9 @@
     "img/paintworld/icon/paint.png",
     "img/paintworld/icon/campfire.png",
     "img/paintworld/icon/campfirestr.png",
-    "img/paintworld/icon/chat.png"
+    "img/paintworld/icon/chat.png",
+    "img/misc/locations/golden_yard/base.png",
+    "img/misc/locations/golden_yard/snow.png"
   ],
   "additionFile": [
     "replace/status_beauty.txt",
