@@ -85,7 +85,9 @@
 			<</if>>
 		<</for>>
         */
-<<wardrobeicon>><<link [[去衣帽间|GoldenYardClothRoom]]>><</link>><br><br>
+<<link [[在床上自慰|GoldenYardBedMasturbation]]>><<set $masturbationstart to 1>><</link>><br><br>
+<<wardrobeicon>><<link [[去衣帽间|GoldenYardClothRoom]]>><</link>><br>
+<<sextoysicon>><<link [[检查小玩具|GoldenYardClothSexToy]]>><<set $sextoyInvReturnLink to $passage>><</link>><br><br>
 <<link [[离开|GoldenYardBedRoom]]>><</link>><br><br>
 <br><br>
 <<link [[设置|Settings]]>><<set $settingsExitPassage to $passage>><</link>><br>
@@ -94,6 +96,31 @@
 <span class="goldLink"><<link [[态度|Attitudes]]>><<set $attitudesExitPassage to $passage>><</link>> </span><span class="red">!!</span>
 <<else>><<link [[态度|Attitudes]]>><<set $attitudesExitPassage to $passage>><</link>><</if>>
 
+:: GoldenYardBedMasturbation
+
+<<effects>>
+<<if $masturbationstart is 1>>
+	<<set $masturbationstart to 0>>
+	<<set $masturbationstat += 1>>
+	<<masturbationstart>>
+<</if>>
+<<masturbationeffects>>
+<<masturbationactions>>
+<<masturbationControls>>
+
+:: GoldenYardBedMasturbation Finish
+
+<<effects>><<clotheson>><<wardrobewear>>
+柔软的床与在其上对自己身体的探索让你有些回味。<<wash>><<control 1>>
+<br><br>
+
+<<endmasturbation>>
+<<endcombat>>
+
+<<wash>>你从床上坐了起来。
+<br><br>
+
+<<link [[继续|GoldenYardBed]] >><<wardrobewear>><</link>>
 
 :: GoldenYardBedEvent
 <br>
@@ -151,8 +178,7 @@
 卧室里的阵阵幽香让你感到格外安心。
 <br><br>
 <<wardrobeicon>><<link [[衣柜|GoldenYardCloth]]>><</link>><br>
-<<mirroricon>><<link [[镜子|GoldenYardMirror]]>><<preMirror>><</link>>
-<br>
+<<mirroricon>><<link [[镜子|GoldenYardMirror]]>><<preMirror>><</link>><br>
 <img class='icon' src="img/goldenyardbeddeluxe.png"> <<link [[回到床边|GoldenYardBed]]>><</link>><br>
 <br>
 <<link [[离开|GoldenYardBedRoom]]>><</link>>
@@ -165,6 +191,31 @@
 <<link [[关上衣柜|GoldenYardClothRoom]]>><<cleanupOnWardrobeExit>><</link>><br><br>
 <<wardrobe>>
 
+
+:: GoldenYardClothSexToy
+
+<<if $worn.lower.name != "naked">>
+	<span id="stiShowUnderwear"><<link "隐藏下装">><<run window.tempHideLower()>><<run Links.generateLinkNumbers($(".passage"))>><</link>></span>
+<</if>>
+<div id="stiCursedText" class="ssm_fade_in"></div>
+<br>
+<div class="sti_grid" id="sti_grid">
+	<div class="sti_grid_title">成人玩具物品栏</div>
+</div>
+<br>
+<div class="sti_gridDescContainer" id="stiDescPillContainer" style="display: none;">
+	<div class="sti_descContainer" id="sti_descContainer"></div>
+</div>
+<br><br>
+<<run window.patchStraponsWearStatus()>>
+<<run window.sexToysInventoryInit()>>
+
+<<if $debug is 1>>
+	<<link [[重新载入|GoldenYardClothSexToy]]>><</link>>
+	<br>
+<</if>>
+
+<<link [[离开|$sextoyInvReturnLink]]>><<unset $sextoyInvReturnLink>><</link>>
 
 :: GoldenYardMirror
 <br>
@@ -215,22 +266,15 @@
 <<GoldenYardMusic>>
 浴室里萦绕着淡淡的幽香，光线透过精美的雕花玻璃窗洒入，柔和的灯光照亮了整个浴室，隐藏在墙壁与地板下的现代化供暖系统让浴室里的温度十分舒适。
 <br><br>
-整个浴室散发着一种宁静和放松的氛围，能让你暂时忘掉一切烦恼和压力。
-<br><br>
-<<bathroomicon>><<link [[泡澡 (0:30)|GoldenYardBath1]]>>
-<<for _type range ["neck","rightarm","leftarm","thigh","bottom","tummy","chest","face","hair","feet","vaginaoutside","vagina","penis","anus","mouth"]>>
-<<bodyliquid _type "goo" -5>><<run $(`#stats${_type}goo`).html(Math.trunc($player.bodyliquid[_type].goo))>>
-<<bodyliquid _type "semen" -5>><<run $(`#stats${_type}semen`).html(Math.trunc($player.bodyliquid[_type].semen))>>
-<<bodyliquid _type "nectar" -5>><<run $(`#stats${_type}nectar`).html(Math.trunc($player.bodyliquid[_type].nectar))>>
-<</for>>
-<<updatesidebarimg>><<stress -12>><<tiredness -12>><<pass 15>><</link>><<lstress>><<ltiredness>><br>
-<<bathroomicon"shower">><<link [[淋浴 (0:15)|GoldenYardBath2]]>>
-<<for _type range ["neck","rightarm","leftarm","thigh","bottom","tummy","chest","face","hair","feet","vaginaoutside","vagina","penis","anus","mouth"]>>
-<<bodyliquid _type "goo" -5>><<run $(`#stats${_type}goo`).html(Math.trunc($player.bodyliquid[_type].goo))>>
-<<bodyliquid _type "semen" -5>><<run $(`#stats${_type}semen`).html(Math.trunc($player.bodyliquid[_type].semen))>>
-<<bodyliquid _type "nectar" -5>><<run $(`#stats${_type}nectar`).html(Math.trunc($player.bodyliquid[_type].nectar))>>
-<</for>>
-<<updatesidebarimg>><<stress -6>><<tiredness -6>><<pass 15>><</link>><<lstress>><<ltiredness>>
+整个浴室散发着一种宁静和放松的氛围，能让你暂时忘掉一切烦恼和压力。<br><br>
+<<if $leftarm is "bound" and $rightarm is "bound">>
+	<<set _clothed = ![V.worn.upper.name, V.worn.lower.name, V.worn.under_upper.name, V.worn.under_lower.name, V.worn.over_upper.name, V.worn.over_lower.name].every(x => x == 'naked')>>
+	<<bathroomicon "bath">><<link [["泡澡 " + (_clothed ? " in clothes " : "") + "(0:40)"|GoldenYardBath1]]>><<water>><<pass 40>><<updatesidebarimg>><<stress -12>><<tiredness -12>><<set $hygiene to 0>><<wash>><</link>><<lstress>><<ltiredness>><br>
+	<<bathroomicon "bath">><<link [["淋浴 " + (_clothed ? " in clothes " : "") + "(0:20)"|GoldenYardBath2]]>><<water>><<pass 20>><<updatesidebarimg>><<stress -6>><<tiredness -6>><<set $hygiene to 0>><<wash>><</link>><<lstress>><<ltiredness>><br>
+<<else>>
+	<<bathroomicon "bath">><<link [[洗澡 (0:40)|GoldenYardBath1]]>><<strip>><<pass 40>><<updatesidebarimg>><<stress -12>><<tiredness -12>><<set $hygiene to 0>><<wash>><</link>><<lstress>><<ltiredness>><br>
+	<<bathroomicon "bath">><<link [[淋浴 (0:20)|GoldenYardBath2]]>><<strip>><<pass 20>><<updatesidebarimg>><<stress -6>><<tiredness -6>><<set $hygiene to 0>><<wash>><</link>><<lstress>><<ltiredness>><br>
+<</if>>
 <br><br>
 <<link [[离开|GoldenYardLivingRoom]]>><</link>>
 
@@ -241,7 +285,8 @@
 <br><br>
 你舒舒服服的泡了个澡，感觉轻松了很多。
 <br><br>
-<<link [[离开|GoldenYardBathRoom]]>><</link>>
+<<getouticon>><<link [[出去|GoldenYardBathRoom Finish]]>><<clotheson>><<strip>><</link>><br>
+<<link [[自慰|GoldenYardBathRoomMasturbation]]>><<clotheson>><<strip>><<set $masturbationstart to 1>><</link>>
 
 
 :: GoldenYardBath2
@@ -250,8 +295,71 @@
 <br><br>
 你舒舒服服的洗了个澡，感觉轻松了很多。
 <br><br>
-<<link [[离开|GoldenYardBathRoom]]>><</link>>
+<<getouticon>><<link [[出去|GoldenYardBathRoom Finish]]>><<clotheson>><<strip>><</link>><br>
 
+:: GoldenYardBathRoom Finish
+
+<<effects>>
+<<set $outside to 0>>
+
+<<if Weather.wetness > 0.5>>
+	水从你的身上滴落。
+<<else>>
+	你的皮肤目前是湿漉漉的。
+<</if>>
+<br><br>
+<<if $leftarm is "bound" and $rightarm is "bound">>
+	<<link [[继续|GoldenYardBathRoom]]>><</link>>
+	<<exit>>
+<</if>>
+
+<<dressasyouwereicon>><<link [[穿你之前的衣服|GoldenYardBathRoom]]>><<clotheson>><</link>>
+<br>
+<<towelicon>><<link [[用毛巾包裹住自己|GoldenYardBathRoom]]>>
+	<<if $player.gender == "f" or $player.breastsize > 0>>
+		<<set $wear_upper = "large_towel">>
+	<<else>>
+		<<set $wear_lower = "towel">>
+	<</if>>
+	<<returnCarried>>
+	<<wardrobewear>>
+<</link>>
+
+<<if $wardrobe.upper.findIndex(x => x.name == "bathrobe") >= 0 or $carried.upper.name == "bathrobe">>
+	<br>
+	<<bathroomicon "robe">><<link [[穿上浴袍|GoldenYardBathRoom]]>>
+		<<returnCarried>>
+		<<set $wardrobeOption to "wear">>
+		<<set $wear_upper = $wardrobe.upper.findIndex(x => x.name == "bathrobe")>>
+		<<wardrobewear>>
+	<</link>>
+<</if>>
+
+:: GoldenYardBathRoomMasturbation
+
+<<effects>>
+<<if $masturbationstart is 1>>
+	<<set $masturbationstart to 0>>
+	<<set $masturbationstat += 1>>
+	<<masturbationstart>>
+<</if>>
+<<masturbationeffects>>
+<<masturbationactions>>
+<<masturbationControls>>
+
+:: GoldenYardBathRoomMasturbation Finish
+
+<<effects>>
+在豪华的浴室中释放自己让你感到浑身舒畅<<wash>><<control 1>>
+<br><br>
+
+<<endmasturbation>>
+<<endcombat>>
+
+<<wash>>你从浴缸里爬了出来。
+<br><br>
+
+<<link [[继续|GoldenYardBathRoom Finish]]>><</link>>
 
 :: GoldenYardStudyRoom
 <br>

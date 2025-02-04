@@ -17,16 +17,16 @@
 <<domusicon>>[[传送至宅邸街|Domus Street]]<br>
 <<homeicon>>[[传送至孤儿院|Orphanage]]<br>
 <<barbicon>>[[传送至倒钩街|Barb Street]]<br>
-<<dorenflaticon>><<link [[传送至多伦的公寓|Doren Entrance]]>><</link>><br>
+<<dooricon :doren:>><<link [[传送至多伦的公寓|Doren Entrance]]>><</link>><br>
 <<dancestudioicon>>[[传送至舞蹈室|Dance Studio]]<br>
 <<policeicon>>[[传送至警察局|Police Station]]<br>
 <<policeicon>>[[传送至警察局办公室|Police Back Office]]<br>
-<<dorenflaticon>>[[传送至公寓区|Flats]]<br>
+<<flatsicon>>[[传送至公寓区|Flats]]<br>
 <<danubeicon>>[[传送至多瑙河街|Danube Street]]<br>
 <<spaicon>>[[传送至多瑙河水疗中心|Spa]]<br>
 <<wolficon>>[[传送至狼街|Wolf Street]]<br>
 <<wolficon>>[[传送至神殿|Temple]]<br>
-<<soupkitchenicon>>[[传送至施粥所|Soup Kitchen]]<br>
+<<kitchenicon>>[[传送至施粥所|Soup Kitchen]]<br>
 <<connudatusicon>>[[传送至康努达塔斯街|Connudatus Street]]<br>
 <<stripclubicon>>[[传送至脱衣舞俱乐部|Strip Club]]<br>
 <<nightingaleicon>>[[传送至南丁格尔街|Nightingale Street]]<br>

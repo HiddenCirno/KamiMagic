@@ -24,13 +24,13 @@
 虚拟光屏出现在你面前。
 <br><br>
 请选择你需要训练的技能。<br>
-<<link [[诡术 (1:00)|GoldenYardSimulateTrainEvent]]>><<skulduggery 5>><<pass 60>><<set $GoldenSkilTrain to 1>><</link>><<gskulduggery>><br>
-<<link [[舞蹈 (1:00)|GoldenYardSimulateTrainEvent]]>><<danceskill 5>><<pass 60>><<set $GoldenSkilTrain to 2>><</link>><<gdanceskill>><br>
-<<link [[游泳 (1:00)|GoldenYardSimulateTrainEvent]]>><<set $swimmingskill += 5>><<set $swimmingskill to Math.clamp($swimmingskill, 0, 1000)>><<pass 60>><<set $GoldenSkilTrain to 3>><</link>><<gswimming>><br>
-<<link [[运动 (1:00)|GoldenYardSimulateTrainEvent]]>><<athletics 5>><<pass 60>><<set $GoldenSkilTrain to 4>><</link>><<gathletics>><br>
-<<link [[护理 (1:00)|GoldenYardSimulateTrainEvent]]>><<tending 5>><<pass 60>><<set $GoldenSkilTrain to 5>><</link>><<gtending>><br>
-<<link [[家务 (1:00)|GoldenYardSimulateTrainEvent]]>><<housekeeping 5>><<pass 60>><<set $GoldenSkilTrain to 6>><</link>><<ghousekeeping>><br>
-<<link [[意志 (1:00)|GoldenYardSimulateTrainEvent]]>><<willpower 5>><<pass 60>><<set $GoldenSkilTrain to 7>><</link>><<gwillpower>><br>
+<<link [[诡术 (1:00)|GoldenYardSimulateTrainEvent]]>><<skulduggery 6>><<pass 60>><<set $GoldenSkilTrain to 1>><</link>><<gskulduggery>><br>
+<<link [[舞蹈 (1:00)|GoldenYardSimulateTrainEvent]]>><<danceskill 6>><<pass 60>><<set $GoldenSkilTrain to 2>><</link>><<gdanceskill>><br>
+<<link [[游泳 (1:00)|GoldenYardSimulateTrainEvent]]>><<set $swimmingskill += 6>><<set $swimmingskill to Math.clamp($swimmingskill, 0, 1000)>><<pass 60>><<set $GoldenSkilTrain to 3>><</link>><<gswimming>><br>
+<<link [[运动 (1:00)|GoldenYardSimulateTrainEvent]]>><<athletics 6>><<pass 60>><<set $GoldenSkilTrain to 4>><</link>><<gathletics>><br>
+<<link [[护理 (1:00)|GoldenYardSimulateTrainEvent]]>><<tending 6>><<pass 60>><<set $GoldenSkilTrain to 5>><</link>><<gtending>><br>
+<<link [[家务 (1:00)|GoldenYardSimulateTrainEvent]]>><<housekeeping 6>><<pass 60>><<set $GoldenSkilTrain to 6>><</link>><<ghousekeeping>><br>
+<<link [[意志 (1:00)|GoldenYardSimulateTrainEvent]]>><<willpower 6>><<pass 60>><<set $GoldenSkilTrain to 7>><</link>><<gwillpower>><br>
 <br>
 <<link [[离开|GoldenYardSimulateTrain]]>><</link>>
 
