@@ -73,7 +73,7 @@
 <br><br>
 <span class="gold">特殊场景</span><br>
 <span class="red">警告：使用此分类下的传送点可能产生不可预料的后果！</span><br>
-<<icon "tentadeeper.png">>[[传送至触手平原|Tentacle World Intro]]<br>
+<<icon "tentadeeper.png">><<link [[传送至触手平原|Tentacle World]]>><<set $tentacleEntrance to "mirror">><</link>><br>
 <<asylumicon  "cell">>[[传送至精神病院|Asylum]]<br>
 <<prisonicon "cell">>[[入狱|Prison Intro Boat]]<br>
 <<prisonicon "cell">>[[传送到监狱|Prison Yard]]<br>

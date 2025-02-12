@@ -70,6 +70,21 @@
   ],
   "addonPlugin": [
     {
+      "modName": "ReplacePatcher",
+      "addonName": "ReplacePatcherAddon",
+      "modVersion": "1.0.0",
+      "params": {
+        "js": [
+          {
+            "TODO": "地点图片",
+            "fileName": "location-images.js",
+            "from": "adult_shop: {",
+            "to": "goldenyard: {\nfolder: \"golden_yard\",\nbase: {\ndefault: {\ncondition: () => !Weather.isSnow,\nimage: \"base.png\"\n},\nsnow: {\ncondition: () => Weather.isSnow,\nimage: \"snow.png\"\n}\n},\n},\nadult_shop: {"
+          }
+        ]
+      }
+    },
+    {
       "modName": "TweeReplacer",
       "addonName": "TweeReplacerAddon",
       "modVersion": "1.0.0",
@@ -80,8 +95,8 @@
           "replaceFile": "replace/GoldenYardBed.txt"
         },
         {
-          "passage": "Widgets",
-          "findRegex": "<<case \"wolf_cave\">>",
+          "passage": "Location Widgets",
+          "findString": "setup.addlocation( \"island\"                   ).parent(\"sea\").location().build();",
           "replaceFile": "replace/location.txt"
         },
         {
